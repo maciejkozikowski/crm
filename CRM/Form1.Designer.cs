@@ -43,6 +43,7 @@
             this.textBoxTelefonKontaktowy = new System.Windows.Forms.TextBox();
             this.textBoxEMail = new System.Windows.Forms.TextBox();
             this.buttonDodajKlienta = new System.Windows.Forms.Button();
+            this.buttonWyszukajPesel = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // labelpesel
@@ -175,11 +176,22 @@
             this.buttonDodajKlienta.UseVisualStyleBackColor = true;
             this.buttonDodajKlienta.Click += new System.EventHandler(this.buttonDodajKlienta_Click);
             // 
+            // buttonWyszukajPesel
+            // 
+            this.buttonWyszukajPesel.Location = new System.Drawing.Point(320, 5);
+            this.buttonWyszukajPesel.Name = "buttonWyszukajPesel";
+            this.buttonWyszukajPesel.Size = new System.Drawing.Size(175, 23);
+            this.buttonWyszukajPesel.TabIndex = 15;
+            this.buttonWyszukajPesel.Text = "Wyszukaj po numerze PESEL";
+            this.buttonWyszukajPesel.UseVisualStyleBackColor = true;
+            this.buttonWyszukajPesel.Click += new System.EventHandler(this.buttonWyszukajPesel_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(326, 261);
+            this.ClientSize = new System.Drawing.Size(582, 261);
+            this.Controls.Add(this.buttonWyszukajPesel);
             this.Controls.Add(this.buttonDodajKlienta);
             this.Controls.Add(this.textBoxEMail);
             this.Controls.Add(this.textBoxTelefonKontaktowy);
@@ -219,6 +231,7 @@
         private System.Windows.Forms.TextBox textBoxTelefonKontaktowy;
         private System.Windows.Forms.TextBox textBoxEMail;
         private System.Windows.Forms.Button buttonDodajKlienta;
+        private System.Windows.Forms.Button buttonWyszukajPesel;
     }
 }
 
