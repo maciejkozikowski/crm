@@ -168,7 +168,7 @@
             // 
             // buttonDodajKlienta
             // 
-            this.buttonDodajKlienta.Location = new System.Drawing.Point(161, 176);
+            this.buttonDodajKlienta.Location = new System.Drawing.Point(159, 170);
             this.buttonDodajKlienta.Name = "buttonDodajKlienta";
             this.buttonDodajKlienta.Size = new System.Drawing.Size(98, 23);
             this.buttonDodajKlienta.TabIndex = 14;
