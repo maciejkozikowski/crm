@@ -6,13 +6,14 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using MySql.Data.MySqlClient;
 
 namespace CRM
 {
     public partial class Form1 : Form
     {
         public string connectionString = "Data Source=DESKTOP-M9RN1U7\\SQLEXPRESS;Initial Catalog=CRM;Integrated Security=True;Pooling=False";
-        
+    
         public Form1()
         {
             InitializeComponent();
@@ -41,7 +42,7 @@ namespace CRM
         {
             SqlConnection con = new SqlConnection(connectionString);
             con.Open();
-            using (SqlCommand command = new SqlCommand("select * from klient where pesel='" + textBoxPesel.Text.ToString() + "'", con))
+            using (SqlCommand command = new SqlCommand("select * from klient where pesel like '%" + textBoxPesel.Text.ToString() + "%'", con))
             {
                 using (SqlDataReader reader = command.ExecuteReader())
                 {
@@ -54,6 +55,7 @@ namespace CRM
                         textBoxAdresZameldowania.Text = reader["adreszameldowania"].ToString();
                         textBoxTelefonKontaktowy.Text = reader["telefonkontaktowy"].ToString();
                         textBoxEMail.Text = reader["email"].ToString();
+
                     }
                 }
             }
