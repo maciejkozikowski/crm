@@ -31,8 +31,9 @@ namespace CRM
 
         private void buttonDodajKlienta_Click(object sender, EventArgs e)
         {
-            
-                string sql = "Create table test(id int(4);";
+            try
+            {
+                string sql = "INSERT INTO klient VALUES ('" + textBoxPesel.Text.ToString() + "', '" + textBoxImie.Text.ToString() + "', '" + textBoxNazwisko.Text.ToString() + "', '" + textBoxAdresZameldowania.Text.ToString() + "', '" + textBoxAdresKorespondencyjny.Text.ToString() + "', '" + textBoxTelefonKontaktowy.Text.ToString() + "', '" + textBoxEMail.Text.ToString() + "');";
                 MySqlCommand cmd = new MySqlCommand(sql, SqlConnectionClass.myConnection);
                 MySqlDataReader rdr = cmd.ExecuteReader();
 
@@ -41,21 +42,16 @@ namespace CRM
                     MessageBox.Show(rdr[0] + " -- " + rdr[1]);
                 }
                 rdr.Close();
- 
+                toolStripStatusLabel1.Text = "Dodano klienta";
 
 
+            }
 
-
-
-            /*  -----------     sql
-            
-            if (con.State==System.Data.ConnectionState.Open)
+            catch (MySqlException ex)
             {
-                string q = "INSERT INTO klient VALUES ('" + textBoxPesel.Text.ToString() + "', '" + textBoxImie.Text.ToString() + "', '" + textBoxNazwisko.Text.ToString() + "', '" + textBoxAdresZameldowania.Text.ToString() + "', '" + textBoxAdresKorespondencyjny.Text.ToString() + "', '" + textBoxTelefonKontaktowy.Text.ToString() + "', '" + textBoxEMail.Text.ToString() + "');";
-                SqlCommand cmd = new SqlCommand(q, con);
-                cmd.ExecuteNonQuery();
-                MessageBox.Show("Dodano klienta");
-            }*/
+                MessageBox.Show("Błąd numer: " + ex.Number + " , " + ex.Message);
+            }
+
 
         }   
            
@@ -80,6 +76,11 @@ namespace CRM
                     }
                 }
             }*/
+        }
+
+        private void toolStripStatusLabel1_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 
