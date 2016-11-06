@@ -18,7 +18,7 @@ namespace CRM
         public static void Foo(){
             try
         {
-                MessageBox.Show("Connecting to MySQL...");
+                MessageBox.Show("Proszę czekać... \nTrwa łączenie z bazą MySql...");
                 myConnection.Open();
 
            }

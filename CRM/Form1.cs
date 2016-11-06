@@ -33,7 +33,7 @@ namespace CRM
         {
             try
             {
-                string sql = "INSERT INTO klient VALUES ('" + textBoxPesel.Text.ToString() + "', '" + textBoxImie.Text.ToString() + "', '" + textBoxNazwisko.Text.ToString() + "', '" + textBoxAdresZameldowania.Text.ToString() + "', '" + textBoxAdresKorespondencyjny.Text.ToString() + "', '" + textBoxTelefonKontaktowy.Text.ToString() + "', '" + textBoxEMail.Text.ToString() + "');";
+                string sql = "INSERT INTO klient VALUES ('" + textBoxPesel.Text.ToString() + "', '" + textBoxImie.Text.ToString() + "', '" + textBoxNazwisko.Text.ToString() + "', '" + textBoxAdresZameldowania.Text.ToString() + "', '" + textBoxAdresKorespondencyjny.Text.ToString() + "', '" + textBoxTelefonKontaktowy.Text.ToString() + "', '" + textBoxEMail.Text.ToString() + ",'' ');";
                 MySqlCommand cmd = new MySqlCommand(sql, SqlConnectionClass.myConnection);
                 MySqlDataReader rdr = cmd.ExecuteReader();
 
@@ -82,6 +82,27 @@ namespace CRM
         {
             
         }
+
+        private void zakończToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        
+        private void dodajKlientaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DodajKlienta.Form();
+           
+        }
+
+        private void oAutorachToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            oAutorach.foo();
+        }
+
+
+
+
     }
 
 

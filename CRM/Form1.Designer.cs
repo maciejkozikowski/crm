@@ -49,6 +49,16 @@
             this.zakończToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.użytkownicyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.wyszukajKlientaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.usługiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pomocToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.oAutorachToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.changeLogToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.dodajUsługęToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.listaKlientówToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.listaUsługToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.dodajKlientaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -196,7 +206,10 @@
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.menuToolStripMenuItem});
+            this.menuToolStripMenuItem,
+            this.użytkownicyToolStripMenuItem,
+            this.usługiToolStripMenuItem,
+            this.pomocToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(582, 24);
@@ -216,6 +229,7 @@
             this.zakończToolStripMenuItem.Name = "zakończToolStripMenuItem";
             this.zakończToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.zakończToolStripMenuItem.Text = "Zakończ";
+            this.zakończToolStripMenuItem.Click += new System.EventHandler(this.zakończToolStripMenuItem_Click);
             // 
             // statusStrip1
             // 
@@ -232,6 +246,78 @@
             this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
             this.toolStripStatusLabel1.Size = new System.Drawing.Size(0, 17);
             this.toolStripStatusLabel1.Click += new System.EventHandler(this.toolStripStatusLabel1_Click);
+            // 
+            // użytkownicyToolStripMenuItem
+            // 
+            this.użytkownicyToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.wyszukajKlientaToolStripMenuItem,
+            this.listaKlientówToolStripMenuItem,
+            this.dodajKlientaToolStripMenuItem});
+            this.użytkownicyToolStripMenuItem.Name = "użytkownicyToolStripMenuItem";
+            this.użytkownicyToolStripMenuItem.Size = new System.Drawing.Size(54, 20);
+            this.użytkownicyToolStripMenuItem.Text = "Klienci";
+            // 
+            // wyszukajKlientaToolStripMenuItem
+            // 
+            this.wyszukajKlientaToolStripMenuItem.Name = "wyszukajKlientaToolStripMenuItem";
+            this.wyszukajKlientaToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
+            this.wyszukajKlientaToolStripMenuItem.Text = "Wyszukaj klienta";
+            // 
+            // usługiToolStripMenuItem
+            // 
+            this.usługiToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.dodajUsługęToolStripMenuItem,
+            this.listaUsługToolStripMenuItem});
+            this.usługiToolStripMenuItem.Name = "usługiToolStripMenuItem";
+            this.usługiToolStripMenuItem.Size = new System.Drawing.Size(52, 20);
+            this.usługiToolStripMenuItem.Text = "Usługi";
+            // 
+            // pomocToolStripMenuItem
+            // 
+            this.pomocToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.changeLogToolStripMenuItem,
+            this.oAutorachToolStripMenuItem});
+            this.pomocToolStripMenuItem.Name = "pomocToolStripMenuItem";
+            this.pomocToolStripMenuItem.Size = new System.Drawing.Size(57, 20);
+            this.pomocToolStripMenuItem.Text = "Pomoc";
+            // 
+            // oAutorachToolStripMenuItem
+            // 
+            this.oAutorachToolStripMenuItem.Name = "oAutorachToolStripMenuItem";
+            this.oAutorachToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.oAutorachToolStripMenuItem.Text = "O autorach";
+            this.oAutorachToolStripMenuItem.Click += new System.EventHandler(this.oAutorachToolStripMenuItem_Click);
+            // 
+            // changeLogToolStripMenuItem
+            // 
+            this.changeLogToolStripMenuItem.Name = "changeLogToolStripMenuItem";
+            this.changeLogToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.changeLogToolStripMenuItem.Text = "Change Log";
+            // 
+            // dodajUsługęToolStripMenuItem
+            // 
+            this.dodajUsługęToolStripMenuItem.Name = "dodajUsługęToolStripMenuItem";
+            this.dodajUsługęToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.dodajUsługęToolStripMenuItem.Text = "Dodaj usługę";
+            // 
+            // listaKlientówToolStripMenuItem
+            // 
+            this.listaKlientówToolStripMenuItem.Name = "listaKlientówToolStripMenuItem";
+            this.listaKlientówToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
+            this.listaKlientówToolStripMenuItem.Text = "Lista klientów";
+            // 
+            // listaUsługToolStripMenuItem
+            // 
+            this.listaUsługToolStripMenuItem.Name = "listaUsługToolStripMenuItem";
+            this.listaUsługToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.listaUsługToolStripMenuItem.Text = "Lista Usług";
+            // 
+            // dodajKlientaToolStripMenuItem
+            // 
+            this.dodajKlientaToolStripMenuItem.Name = "dodajKlientaToolStripMenuItem";
+            this.dodajKlientaToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
+            this.dodajKlientaToolStripMenuItem.Text = "Dodaj klienta";
+            this.dodajKlientaToolStripMenuItem.Click += new System.EventHandler(this.dodajKlientaToolStripMenuItem_Click);
             // 
             // Form1
             // 
@@ -291,6 +377,16 @@
         private System.Windows.Forms.ToolStripMenuItem zakończToolStripMenuItem;
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
+        private System.Windows.Forms.ToolStripMenuItem użytkownicyToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem wyszukajKlientaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem usługiToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem pomocToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem oAutorachToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem listaKlientówToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem dodajUsługęToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem listaUsługToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem changeLogToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem dodajKlientaToolStripMenuItem;
     }
 }
 
