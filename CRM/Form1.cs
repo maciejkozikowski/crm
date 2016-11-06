@@ -29,31 +29,7 @@ namespace CRM
 
         }
 
-        private void buttonDodajKlienta_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                string sql = "INSERT INTO klient VALUES ('" + textBoxPesel.Text.ToString() + "', '" + textBoxImie.Text.ToString() + "', '" + textBoxNazwisko.Text.ToString() + "', '" + textBoxAdresZameldowania.Text.ToString() + "', '" + textBoxAdresKorespondencyjny.Text.ToString() + "', '" + textBoxTelefonKontaktowy.Text.ToString() + "', '" + textBoxEMail.Text.ToString() + ",'' ');";
-                MySqlCommand cmd = new MySqlCommand(sql, SqlConnectionClass.myConnection);
-                MySqlDataReader rdr = cmd.ExecuteReader();
-
-                while (rdr.Read())
-                {
-                    MessageBox.Show(rdr[0] + " -- " + rdr[1]);
-                }
-                rdr.Close();
-                toolStripStatusLabel1.Text = "Dodano klienta";
-
-
-            }
-
-            catch (MySqlException ex)
-            {
-                MessageBox.Show("Błąd numer: " + ex.Number + " , " + ex.Message);
-            }
-
-
-        }   
+        
            
 
         private void buttonWyszukajPesel_Click(object sender, EventArgs e)
@@ -78,10 +54,7 @@ namespace CRM
             }*/
         }
 
-        private void toolStripStatusLabel1_Click(object sender, EventArgs e)
-        {
-            
-        }
+        
 
         private void zakończToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -98,6 +71,11 @@ namespace CRM
         private void oAutorachToolStripMenuItem_Click(object sender, EventArgs e)
         {
             oAutorach.foo();
+        }
+
+        private void listaKlientówToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ListaKlientow.Form();
         }
 
 

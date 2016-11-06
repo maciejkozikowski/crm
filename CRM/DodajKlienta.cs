@@ -64,14 +64,21 @@ namespace CRM
            eMailLabel.Text = "E-Mail";
            eMailLabel.Location = new Point(telefonLabel.Left, telefonLabel.Height + telefonLabel.Top );
 
-
+           
            //imieTextBox opcje
            imieTextBox.Location = new Point(imieLabel.Right + odleglosc, 0 + imieLabel.Top);
-           //nazwiskoTextBox opcje
+           //nazwiskoTextBox opcje 
            nazwiskoTextBox.Location = new Point(imieTextBox.Left, imieTextBox.Height + imieTextBox.Top);
            //peselTextBox opcje
            peselTextBox.Location = new Point(nazwiskoTextBox.Left, nazwiskoTextBox.Height + nazwiskoTextBox.Top);
-
+           // adresZameldowaniaTextBox opcje
+           adresZameldowaniaTextBox.Location = new Point(peselTextBox.Left, peselTextBox.Height + peselTextBox.Top);
+           //adresKorespondencyjnyTextBox opcje
+           adresKorespondencyjnyTextBox.Location = new Point(adresZameldowaniaTextBox.Left, adresZameldowaniaTextBox.Height + adresZameldowaniaTextBox.Top);
+           //telefonTextBox opcje
+           telefonTextBox.Location = new Point(adresKorespondencyjnyTextBox.Left, adresKorespondencyjnyTextBox.Height + adresKorespondencyjnyTextBox.Top);
+           //eMailTextBox opcje
+           eMailTextBox.Location = new Point(telefonTextBox.Left, telefonTextBox.Height + telefonTextBox.Top);
 
 
            // Create two buttons to use as the accept and cancel buttons.
@@ -79,9 +86,34 @@ namespace CRM
            Button button2 = new Button();
            button1.Click += delegate
            {
-               MessageBox.Show("blablabla wykonuje sie niby, tak naprawde to nic sie nie dzieje bo trzeba dokonczyc kod, lololol");
+               //MessageBox.Show("blablabla wykonuje sie niby, tak naprawde to nic sie nie dzieje bo trzeba dokonczyc kod, lololol"); //testowe okienoko
                //button2.PerformClick(); //ma sie zamykac okno po dodaniu klienta?
                //dodajKlientaForm.Close(); //nie wiem ktory lepszy
+
+               
+                try
+            {
+                string sql = "INSERT INTO klient(imie,nazwisko,pesel,adres_zam,adres_kor,telefon_kon,email )" + " VALUES ('" + imieTextBox.Text.ToString() + "', '" + nazwiskoTextBox.Text.ToString() + "', '" + peselTextBox.Text.ToString() + "', '" + adresZameldowaniaTextBox.Text.ToString() + "', '" + adresKorespondencyjnyTextBox.Text.ToString() + "', '" + telefonTextBox.Text.ToString() + "', '" + eMailTextBox.Text.ToString() + ",'' ');";
+                MySqlCommand cmd = new MySqlCommand(sql, SqlConnectionClass.myConnection);
+                MySqlDataReader rdr = cmd.ExecuteReader();
+
+                while (rdr.Read())
+                {
+                    //MessageBox.Show(rdr[0] + " -- " + rdr[1]);
+                    
+                }
+                rdr.Close();
+                MessageBox.Show("Dodano klienta do bazy!");
+
+
+            }
+
+            catch (MySqlException ex)
+            {
+                MessageBox.Show("Błąd numer: " + ex.Number + " , " + ex.Message);
+            }
+                
+                
            };
            
            
@@ -128,11 +160,11 @@ namespace CRM
            dodajKlientaForm.Controls.Add(imieTextBox);
            dodajKlientaForm.Controls.Add(nazwiskoTextBox);
            dodajKlientaForm.Controls.Add(peselTextBox);
-           /*dodajKlientaForm.Controls.Add(adresZameldowaniaTextBox);
+           dodajKlientaForm.Controls.Add(adresZameldowaniaTextBox);
            dodajKlientaForm.Controls.Add(adresKorespondencyjnyTextBox);
            dodajKlientaForm.Controls.Add(telefonTextBox);
            dodajKlientaForm.Controls.Add(eMailTextBox);
-           */
+           
 
            // Display the form as a modal dialog box.
 
