@@ -94,6 +94,13 @@ namespace CRM
                 try
             {
                 string sql = "INSERT INTO klient(imie,nazwisko,pesel,adres_zam,adres_kor,telefon_kon,email )" + " VALUES ('" + imieTextBox.Text.ToString() + "', '" + nazwiskoTextBox.Text.ToString() + "', '" + peselTextBox.Text.ToString() + "', '" + adresZameldowaniaTextBox.Text.ToString() + "', '" + adresKorespondencyjnyTextBox.Text.ToString() + "', '" + telefonTextBox.Text.ToString() + "', '" + eMailTextBox.Text.ToString() + ",'' ');";
+                
+                  
+                //cmd.CommandText = "SELECT count(*) from tbUser WHERE UserName = @username and password=@password";
+                //command.Parameters.Add("@username", txtUserName.Text);
+                //command.Parameters.Add("@password", txtPassword.Text);
+
+                //treba to przepisac i zrobic tak jak wyzej, z tego co wyczytalem jak tak sie robi o mozna sie dobrac do komedy i hakowac -->>> https://www.owasp.org/index.php/SQL_Injection
                 MySqlCommand cmd = new MySqlCommand(sql, SqlConnectionClass.myConnection);
                 MySqlDataReader rdr = cmd.ExecuteReader();
 

@@ -8,8 +8,11 @@ using System.Windows.Forms;
 
 namespace CRM
 {
+
+
     class SqlConnectionClass
     {
+
 
         private static string myConnectionString = "server=mysql3.gear.host;uid=crmproject;" + "pwd=zaq1@WSX;database=crmproject;";
         public static MySqlConnection myConnection = new MySqlConnection(myConnectionString);
@@ -18,9 +21,12 @@ namespace CRM
         public static void Foo(){
             try
         {
-                MessageBox.Show("Proszę czekać... \nTrwa łączenie z bazą MySql...");
+                
                 myConnection.Open();
-
+                
+                //MessageBox.Show("Proszę czekać... \nTrwa łączenie z bazą MySql...");
+                
+                
            }
             catch (MySql.Data.MySqlClient.MySqlException ex)
             {

@@ -36,22 +36,20 @@
             this.wyszukajKlientaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.listaKlientówToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dodajKlientaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.usługiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.dodajUsługęToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.listaUsługToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pomocToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.changeLogToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.oAutorachToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.oBazieToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // buttonWyszukajPesel
             // 
-            this.buttonWyszukajPesel.Location = new System.Drawing.Point(383, 42);
+            this.buttonWyszukajPesel.Location = new System.Drawing.Point(343, 115);
             this.buttonWyszukajPesel.Name = "buttonWyszukajPesel";
             this.buttonWyszukajPesel.Size = new System.Drawing.Size(175, 23);
             this.buttonWyszukajPesel.TabIndex = 15;
-            this.buttonWyszukajPesel.Text = "Wyszukaj po numerze PESEL";
+            this.buttonWyszukajPesel.Text = "dont delte this";
             this.buttonWyszukajPesel.UseVisualStyleBackColor = true;
             this.buttonWyszukajPesel.Click += new System.EventHandler(this.buttonWyszukajPesel_Click);
             // 
@@ -60,7 +58,6 @@
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.menuToolStripMenuItem,
             this.użytkownicyToolStripMenuItem,
-            this.usługiToolStripMenuItem,
             this.pomocToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
@@ -79,7 +76,7 @@
             // zakończToolStripMenuItem
             // 
             this.zakończToolStripMenuItem.Name = "zakończToolStripMenuItem";
-            this.zakończToolStripMenuItem.Size = new System.Drawing.Size(118, 22);
+            this.zakończToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.zakończToolStripMenuItem.Text = "Zakończ";
             this.zakończToolStripMenuItem.Click += new System.EventHandler(this.zakończToolStripMenuItem_Click);
             // 
@@ -113,32 +110,12 @@
             this.dodajKlientaToolStripMenuItem.Text = "Dodaj klienta";
             this.dodajKlientaToolStripMenuItem.Click += new System.EventHandler(this.dodajKlientaToolStripMenuItem_Click);
             // 
-            // usługiToolStripMenuItem
-            // 
-            this.usługiToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.dodajUsługęToolStripMenuItem,
-            this.listaUsługToolStripMenuItem});
-            this.usługiToolStripMenuItem.Name = "usługiToolStripMenuItem";
-            this.usługiToolStripMenuItem.Size = new System.Drawing.Size(52, 20);
-            this.usługiToolStripMenuItem.Text = "Usługi";
-            // 
-            // dodajUsługęToolStripMenuItem
-            // 
-            this.dodajUsługęToolStripMenuItem.Name = "dodajUsługęToolStripMenuItem";
-            this.dodajUsługęToolStripMenuItem.Size = new System.Drawing.Size(143, 22);
-            this.dodajUsługęToolStripMenuItem.Text = "Dodaj usługę";
-            // 
-            // listaUsługToolStripMenuItem
-            // 
-            this.listaUsługToolStripMenuItem.Name = "listaUsługToolStripMenuItem";
-            this.listaUsługToolStripMenuItem.Size = new System.Drawing.Size(143, 22);
-            this.listaUsługToolStripMenuItem.Text = "Lista Usług";
-            // 
             // pomocToolStripMenuItem
             // 
             this.pomocToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.changeLogToolStripMenuItem,
-            this.oAutorachToolStripMenuItem});
+            this.oAutorachToolStripMenuItem,
+            this.oBazieToolStripMenuItem});
             this.pomocToolStripMenuItem.Name = "pomocToolStripMenuItem";
             this.pomocToolStripMenuItem.Size = new System.Drawing.Size(57, 20);
             this.pomocToolStripMenuItem.Text = "Pomoc";
@@ -146,15 +123,22 @@
             // changeLogToolStripMenuItem
             // 
             this.changeLogToolStripMenuItem.Name = "changeLogToolStripMenuItem";
-            this.changeLogToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
+            this.changeLogToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.changeLogToolStripMenuItem.Text = "Change Log";
+            this.changeLogToolStripMenuItem.Click += new System.EventHandler(this.changeLogToolStripMenuItem_Click);
             // 
             // oAutorachToolStripMenuItem
             // 
             this.oAutorachToolStripMenuItem.Name = "oAutorachToolStripMenuItem";
-            this.oAutorachToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
+            this.oAutorachToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.oAutorachToolStripMenuItem.Text = "O autorach";
             this.oAutorachToolStripMenuItem.Click += new System.EventHandler(this.oAutorachToolStripMenuItem_Click);
+            // 
+            // oBazieToolStripMenuItem
+            // 
+            this.oBazieToolStripMenuItem.Name = "oBazieToolStripMenuItem";
+            this.oBazieToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.oBazieToolStripMenuItem.Text = "O bazie";
             // 
             // Form1
             // 
@@ -181,14 +165,12 @@
         private System.Windows.Forms.ToolStripMenuItem zakończToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem użytkownicyToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem wyszukajKlientaToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem usługiToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem pomocToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem oAutorachToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem listaKlientówToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem dodajUsługęToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem listaUsługToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem changeLogToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem dodajKlientaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem oBazieToolStripMenuItem;
     }
 }
 

@@ -78,6 +78,11 @@ namespace CRM
             ListaKlientow.Form();
         }
 
+        private void changeLogToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ChangeLog.Form();
+        }
+
 
 
 
