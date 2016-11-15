@@ -21,6 +21,7 @@ namespace CRM
         {
             InitializeComponent();
             SqlConnectionClass.Foo();
+            label1.Text = "Witaj! Dziś jest " + DateTime.Now.ToString();
         }
 
 
@@ -80,7 +81,20 @@ namespace CRM
 
         private void changeLogToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ChangeLog.Form();
+
+            ChangeLog changelogform = new ChangeLog();
+            changelogform.Show();
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void wyszukajKlientaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            wyszukajKlienta wyszukajKlientaForm = new wyszukajKlienta();
+            wyszukajKlientaForm.Show();
         }
 
 

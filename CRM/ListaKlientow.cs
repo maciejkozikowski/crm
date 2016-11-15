@@ -74,6 +74,12 @@ namespace CRM
                 //MySqlDataReader rdr = cmd.ExecuteReader();
                 MySqlDataAdapter adapter = new MySqlDataAdapter(sql, SqlConnectionClass.myConnection);
                 DataSet DS = new DataSet();
+
+                if (SqlConnectionClass.myConnection.State == ConnectionState.Closed)  //Jest połączony z bazą??
+                {
+                    SqlConnectionClass.myConnection.Open();
+                }
+
                 adapter.Fill(DS);
                 
                 // nazwa datagridview -> dgv1
@@ -93,15 +99,23 @@ namespace CRM
                 };
                 */
 
-
+                
                 button1.Click += delegate
                                 {
+                                    
+
                                     DataTable changes = ((DataTable)dgv1.DataSource).GetChanges();
 
                                     if (changes != null)
                                     {
                                         try
                                         {
+                                            if (SqlConnectionClass.myConnection.State == ConnectionState.Closed)  //Jest połączony z bazą??
+                                            {
+                                                SqlConnectionClass.myConnection.Open();
+                                            }
+
+
                                             MySqlCommandBuilder mcb = new MySqlCommandBuilder(adapter);
                                             adapter.UpdateCommand = mcb.GetUpdateCommand();
                                             adapter.Update(changes);
@@ -122,6 +136,8 @@ namespace CRM
                 {
                     try
                     {
+
+
                         dgv1.DataSource = null;
                         
                     }

@@ -40,6 +40,8 @@
             this.changeLogToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.oAutorachToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.oBazieToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.label1 = new System.Windows.Forms.Label();
+            this.usługiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -58,10 +60,11 @@
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.menuToolStripMenuItem,
             this.użytkownicyToolStripMenuItem,
+            this.usługiToolStripMenuItem,
             this.pomocToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(582, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(584, 24);
             this.menuStrip1.TabIndex = 16;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -76,7 +79,7 @@
             // zakończToolStripMenuItem
             // 
             this.zakończToolStripMenuItem.Name = "zakończToolStripMenuItem";
-            this.zakończToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.zakończToolStripMenuItem.Size = new System.Drawing.Size(118, 22);
             this.zakończToolStripMenuItem.Text = "Zakończ";
             this.zakończToolStripMenuItem.Click += new System.EventHandler(this.zakończToolStripMenuItem_Click);
             // 
@@ -95,6 +98,7 @@
             this.wyszukajKlientaToolStripMenuItem.Name = "wyszukajKlientaToolStripMenuItem";
             this.wyszukajKlientaToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
             this.wyszukajKlientaToolStripMenuItem.Text = "Wyszukaj klienta";
+            this.wyszukajKlientaToolStripMenuItem.Click += new System.EventHandler(this.wyszukajKlientaToolStripMenuItem_Click);
             // 
             // listaKlientówToolStripMenuItem
             // 
@@ -140,16 +144,32 @@
             this.oBazieToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.oBazieToolStripMenuItem.Text = "O bazie";
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(13, 28);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(34, 13);
+            this.label1.TabIndex = 17;
+            this.label1.Text = "Witaj!";
+            // 
+            // usługiToolStripMenuItem
+            // 
+            this.usługiToolStripMenuItem.Name = "usługiToolStripMenuItem";
+            this.usługiToolStripMenuItem.Size = new System.Drawing.Size(52, 20);
+            this.usługiToolStripMenuItem.Text = "Usługi";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(582, 261);
+            this.ClientSize = new System.Drawing.Size(584, 261);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.buttonWyszukajPesel);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "CRM";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
@@ -171,6 +191,8 @@
         private System.Windows.Forms.ToolStripMenuItem changeLogToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem dodajKlientaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem oBazieToolStripMenuItem;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ToolStripMenuItem usługiToolStripMenuItem;
     }
 }
 
