@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.buttonWyszukajPesel = new System.Windows.Forms.Button();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.menuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.zakończToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -36,24 +35,14 @@
             this.wyszukajKlientaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.listaKlientówToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dodajKlientaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.usługiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pomocToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.changeLogToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.oAutorachToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.oBazieToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.label1 = new System.Windows.Forms.Label();
-            this.usługiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // buttonWyszukajPesel
-            // 
-            this.buttonWyszukajPesel.Location = new System.Drawing.Point(343, 115);
-            this.buttonWyszukajPesel.Name = "buttonWyszukajPesel";
-            this.buttonWyszukajPesel.Size = new System.Drawing.Size(175, 23);
-            this.buttonWyszukajPesel.TabIndex = 15;
-            this.buttonWyszukajPesel.Text = "dont delte this";
-            this.buttonWyszukajPesel.UseVisualStyleBackColor = true;
-            this.buttonWyszukajPesel.Click += new System.EventHandler(this.buttonWyszukajPesel_Click);
             // 
             // menuStrip1
             // 
@@ -114,6 +103,12 @@
             this.dodajKlientaToolStripMenuItem.Text = "Dodaj klienta";
             this.dodajKlientaToolStripMenuItem.Click += new System.EventHandler(this.dodajKlientaToolStripMenuItem_Click);
             // 
+            // usługiToolStripMenuItem
+            // 
+            this.usługiToolStripMenuItem.Name = "usługiToolStripMenuItem";
+            this.usługiToolStripMenuItem.Size = new System.Drawing.Size(52, 20);
+            this.usługiToolStripMenuItem.Text = "Usługi";
+            // 
             // pomocToolStripMenuItem
             // 
             this.pomocToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -127,21 +122,21 @@
             // changeLogToolStripMenuItem
             // 
             this.changeLogToolStripMenuItem.Name = "changeLogToolStripMenuItem";
-            this.changeLogToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.changeLogToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
             this.changeLogToolStripMenuItem.Text = "Change Log";
             this.changeLogToolStripMenuItem.Click += new System.EventHandler(this.changeLogToolStripMenuItem_Click);
             // 
             // oAutorachToolStripMenuItem
             // 
             this.oAutorachToolStripMenuItem.Name = "oAutorachToolStripMenuItem";
-            this.oAutorachToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.oAutorachToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
             this.oAutorachToolStripMenuItem.Text = "O autorach";
             this.oAutorachToolStripMenuItem.Click += new System.EventHandler(this.oAutorachToolStripMenuItem_Click);
             // 
             // oBazieToolStripMenuItem
             // 
             this.oBazieToolStripMenuItem.Name = "oBazieToolStripMenuItem";
-            this.oBazieToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.oBazieToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
             this.oBazieToolStripMenuItem.Text = "O bazie";
             // 
             // label1
@@ -153,19 +148,12 @@
             this.label1.TabIndex = 17;
             this.label1.Text = "Witaj!";
             // 
-            // usługiToolStripMenuItem
-            // 
-            this.usługiToolStripMenuItem.Name = "usługiToolStripMenuItem";
-            this.usługiToolStripMenuItem.Size = new System.Drawing.Size(52, 20);
-            this.usługiToolStripMenuItem.Text = "Usługi";
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(584, 261);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.buttonWyszukajPesel);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
@@ -179,7 +167,6 @@
 
         #endregion
 
-        private System.Windows.Forms.Button buttonWyszukajPesel;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem menuToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem zakończToolStripMenuItem;

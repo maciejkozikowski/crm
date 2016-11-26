@@ -16,6 +16,8 @@ namespace CRM
         public wyszukajKlienta()
         {
             InitializeComponent();
+            dataGridView1.ReadOnly = true;
+            dataGridView1.CellClick += dataGridView1_CellClick;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -41,14 +43,32 @@ namespace CRM
         private void button2_Click(object sender, EventArgs e)
         {
 
-            string sql = "select * from klient ";
-            
+            string sql = "select idklienta,imie,nazwisko,pesel,adres_zam,adres_kor,telefon_kon,email,z_przetw,z_market,z_fak from klient ";
+
+            if (checkBox3.Checked)
+            {
+                if (checkBox1.Checked)
+                {
+                    checkBox1.Checked = false;
+                    
+                }
+                    
+                if (checkBox2.Checked)
+                {
+                    checkBox2.Checked = false;
+                    
+                }
+                   // or nazwisko like '%" + "%'
+
+                sql = "SELECT idklienta,imie,nazwisko,pesel,adres_zam,adres_kor,telefon_kon,email,z_przetw,z_market,z_fak FROM klient where imie like '%" + textBox3.Text + "%' or nazwisko like '%" + textBox3.Text + "%' or pesel like '%" + textBox3.Text + "%' or telefon_kon like '%" + textBox3.Text + "%' or email like '%" + textBox3.Text + "%'";
+            }
+
             if (checkBox1.Checked)
             {
                 if (checkBox2.Checked)
-                    sql = "select * from klient where imie ='" + textBox1.Text + "' and nazwisko ='" + textBox2.Text + "'";
+                    sql = "select idklienta,imie,nazwisko,pesel,adres_zam,adres_kor,telefon_kon,email,z_przetw,z_market,z_fak from klient where imie ='" + textBox1.Text + "' and nazwisko ='" + textBox2.Text + "'";
                 else
-                    sql = "select * from klient where imie ='" + textBox1.Text + "'"; 
+                    sql = "select idklienta,imie,nazwisko,pesel,adres_zam,adres_kor,telefon_kon,email,z_przetw,z_market,z_fak from klient where imie ='" + textBox1.Text + "'"; 
 
             }
             
@@ -56,12 +76,13 @@ namespace CRM
             if (checkBox2.Checked)
             {
                 if (checkBox1.Checked)
-                    sql = "select * from klient where imie ='" + textBox1.Text + "' and nazwisko ='" + textBox2.Text + "'";
+                    sql = "select idklienta,imie,nazwisko,pesel,adres_zam,adres_kor,telefon_kon,email,z_przetw,z_market,z_fak from klient where imie ='" + textBox1.Text + "' and nazwisko ='" + textBox2.Text + "'";
                 else
-                    sql = "select * from klient where nazwisko ='" + textBox2.Text + "'";
+                    sql = "select idklienta,imie,nazwisko,pesel,adres_zam,adres_kor,telefon_kon,email,z_przetw,z_market,z_fak from klient where nazwisko ='" + textBox2.Text + "'";
 
             }
-           
+
+            
 
 
             sql += ";";
@@ -80,6 +101,35 @@ namespace CRM
 
 
             dataGridView1.DataSource = DS.Tables[0];
+        }
+
+        private void checkBox3_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBox3.Checked == true)
+            {
+                checkBox1.Enabled = false;
+                checkBox2.Enabled = false;
+            }
+            else
+            {
+                checkBox1.Enabled = true;
+                checkBox2.Enabled = true;
+            }
+
+
+                
+                
+        }
+
+        private void dataGridView1_CellClick(object sender,
+    DataGridViewCellEventArgs e)
+        {
+            string name = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString();
+
+            //MessageBox.Show(name);
+            KlientForm klientFormForm = new KlientForm();
+            klientFormForm.Show();
+            klientFormForm.foo(name);
         }
     }
 }
