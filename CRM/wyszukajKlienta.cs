@@ -124,12 +124,20 @@ namespace CRM
         private void dataGridView1_CellClick(object sender,
     DataGridViewCellEventArgs e)
         {
-            string name = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString();
+            //idklienta,imie,nazwisko,pesel,adres_zam,adres_kor,telefon_kon,email,z_przetw,z_market,z_fak
+            string id = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString();
+            string imie = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
+            string nazwisko = dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString();
+            string pesel = dataGridView1.Rows[e.RowIndex].Cells[3].Value.ToString();
+            string adres_zam = dataGridView1.Rows[e.RowIndex].Cells[4].Value.ToString();
+            string adres_kor = dataGridView1.Rows[e.RowIndex].Cells[5].Value.ToString();
+            string t_kon = dataGridView1.Rows[e.RowIndex].Cells[6].Value.ToString();
+            string email = dataGridView1.Rows[e.RowIndex].Cells[7].Value.ToString();
 
             //MessageBox.Show(name);
             KlientForm klientFormForm = new KlientForm();
             klientFormForm.Show();
-            klientFormForm.foo(name);
+            klientFormForm.foo(id,imie,nazwisko,pesel,adres_zam,adres_kor,t_kon,email);
         }
     }
 }

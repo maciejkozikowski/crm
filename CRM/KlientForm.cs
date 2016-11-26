@@ -16,11 +16,14 @@ namespace CRM
         public KlientForm()
         {
             InitializeComponent();
+            
         }
-
-        public void foo(string a){
-            MessageBox.Show(a);
-            idklienta = a;
+        //idklienta,imie,nazwisko,pesel,adres_zam,adres_kor,telefon_kon,email,z_przetw,z_market,z_fak
+        public void foo(string id,string imie,string nazwisko, string pesel,string adres_zam,string adres_kor, string telefon_kon,string email){
+            
+            this.Text = imie + " " + nazwisko;
+            MessageBox.Show(id + imie + nazwisko + email);
+            idklienta = id;
         }
     }
 }
