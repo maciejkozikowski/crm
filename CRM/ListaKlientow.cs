@@ -68,7 +68,7 @@ namespace CRM
 
             try
             {
-                string sql = "select * from klient;";
+                string sql = "select idklienta,imie,nazwisko,pesel,adres_zam,adres_kor,telefon_kon,email,z_przetw,z_market,z_fak from klient;";
 
                 //MySqlCommand cmd = new MySqlCommand(sql, SqlConnectionClass.myConnection);
                 //MySqlDataReader rdr = cmd.ExecuteReader();

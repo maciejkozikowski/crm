@@ -35,12 +35,12 @@
             this.wyszukajKlientaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.listaKlientówToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dodajKlientaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.usługiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pomocToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.changeLogToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.oAutorachToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.oBazieToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -49,7 +49,6 @@
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.menuToolStripMenuItem,
             this.użytkownicyToolStripMenuItem,
-            this.usługiToolStripMenuItem,
             this.pomocToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
@@ -103,12 +102,6 @@
             this.dodajKlientaToolStripMenuItem.Text = "Dodaj klienta";
             this.dodajKlientaToolStripMenuItem.Click += new System.EventHandler(this.dodajKlientaToolStripMenuItem_Click);
             // 
-            // usługiToolStripMenuItem
-            // 
-            this.usługiToolStripMenuItem.Name = "usługiToolStripMenuItem";
-            this.usługiToolStripMenuItem.Size = new System.Drawing.Size(52, 20);
-            this.usługiToolStripMenuItem.Text = "Usługi";
-            // 
             // pomocToolStripMenuItem
             // 
             this.pomocToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -148,11 +141,21 @@
             this.label1.TabIndex = 17;
             this.label1.Text = "Witaj!";
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(13, 239);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(35, 13);
+            this.label2.TabIndex = 18;
+            this.label2.Text = "label2";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(584, 261);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
@@ -179,7 +182,7 @@
         private System.Windows.Forms.ToolStripMenuItem dodajKlientaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem oBazieToolStripMenuItem;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ToolStripMenuItem usługiToolStripMenuItem;
+        private System.Windows.Forms.Label label2;
     }
 }
 

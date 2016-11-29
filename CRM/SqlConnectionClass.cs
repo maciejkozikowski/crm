@@ -5,6 +5,11 @@ using System.Text;
 using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
 using System.Windows.Forms;
+using System.Data;
+
+
+
+
 
 namespace CRM
 {
@@ -21,8 +26,11 @@ namespace CRM
         public static void Foo(){
             try
         {
+            if (myConnection.State == ConnectionState.Closed)
+            {
+               myConnection.Open();
+            }
                 
-                myConnection.Open();
                 
                 //MessageBox.Show("Proszę czekać... \nTrwa łączenie z bazą MySql...");
                 

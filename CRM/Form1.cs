@@ -22,6 +22,8 @@ namespace CRM
             InitializeComponent();
             SqlConnectionClass.Foo();
             label1.Text = "Witaj! Dziś jest " + DateTime.Now.ToString();
+            //
+            label2.Text = "Zalogowano jako: " + Program.userName + ", ostatnie logowanie: " + Program.userLastLogin;
         }
 
 
