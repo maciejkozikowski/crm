@@ -12,27 +12,113 @@ namespace CRM
 {
     public partial class Form1 : Form
     {
-        
-       
+
+        string defRichText = "Max 200 znaków.";
         
 
 
         public Form1()
         {
-            InitializeComponent();
-            SqlConnectionClass.Foo();
-            label1.Text = "Witaj! Dziś jest " + DateTime.Now.ToString();
-            //
-            label2.Text = "Zalogowano jako: " + Program.userName + ", ostatnie logowanie: " + Program.userLastLogin;
+            
+                InitializeComponent();
+                SqlConnectionClass.Foo();
+                label1.Text = "Witaj! Dziś jest " + DateTime.Now.ToString();
+                this.Text = "CRM - Zalogowano jako: " + Program.userName;
+                label2.Text = "Zalogowano jako: " + Program.userName + ", ostatnie logowanie: " + Program.userLastLogin;
+                
+                //czat
+                richTextBox2.MaxLength = 200;
+                //this.ActiveControl = richTextBox2; // ma byc aktywny na starcie czat, okienko do wpisywania
+                richTextBox2.GotFocus += richTextBox2_GotFocus;
+                richTextBox2.Text = defRichText;
+                richTextBox2.ForeColor = Color.LightGray;
+                
+            
         }
 
+        private void richTextBox2_GotFocus(object sender, EventArgs e)
+        {
+            richTextBox2.ForeColor = Color.Black;
+            if(richTextBox2.Text == defRichText)
+            richTextBox2.Text = "";
+        }
 
         private void textBox6_TextChanged(object sender, EventArgs e)
         {
 
         }
 
+        public void chat()
+        {
+            if (richTextBox2.Text != "")
+            {
+                try
+                {
+                    string msg = "INSERT INTO wiadomosci(iduser,wiadomosc,datawiadomosci)"
+                       + " VALUES ('"
+                       + Program.userId
+                       + "','"
+                       + richTextBox2.Text                       
+                       + System.Environment.NewLine
+                       + "',"
+                       + "CURTIME()"
+                       + ");";
+                    MySqlCommand cmd = new MySqlCommand(msg, SqlConnectionClass.myConnection);
 
+                    if (SqlConnectionClass.myConnection.State == ConnectionState.Closed)  //Jest połączony z bazą??
+                    {
+                        SqlConnectionClass.myConnection.Open();
+                    }
+
+                    MySqlDataReader rdr = cmd.ExecuteReader();
+                    rdr.Close();
+
+                }
+                catch (MySqlException ex)
+                {
+                    MessageBox.Show("Błąd numer: " + ex.Number + " , " + ex.Message);
+                }
+
+
+                richTextBox1.Text += Program.userName + ": " + richTextBox2.Text + System.Environment.NewLine;
+            }
+            
+            richTextBox2.Text = "";
+        }
+        void chatRefresh()
+        {
+            
+            try
+            {
+                string refre = "SELECT users.name, wiadomosci.datawiadomosci, wiadomosci.wiadomosc FROM wiadomosci JOIN users ON wiadomosci.iduser = users.id";
+
+                MySqlCommand cmd = new MySqlCommand(refre, SqlConnectionClass.myConnection);
+
+                if (SqlConnectionClass.myConnection.State == ConnectionState.Closed)  //Jest połączony z bazą??
+                {
+                    SqlConnectionClass.myConnection.Open();
+                }
+
+                MySqlDataReader rdr = cmd.ExecuteReader();
+
+                richTextBox1.Clear();
+                while (rdr.Read())
+                {
+                    int j = 0;
+                    
+                   // MessageBox.Show(rdr[j] + " -- " + rdr[j+1]                        );
+                    richTextBox1.Text += rdr[j] + " (" + rdr[j + 1] + "): " + rdr[j + 2 ];
+                }
+                    
+                
+                rdr.Close();
+
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show("Błąd numer: " + ex.Number + " , " + ex.Message);
+            }
+        }
         
 
         private void zakończToolStripMenuItem_Click(object sender, EventArgs e)
@@ -73,6 +159,31 @@ namespace CRM
         {
             wyszukajKlienta wyszukajKlientaForm = new wyszukajKlienta();
             wyszukajKlientaForm.Show();
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("jakies drukowanie bedzie tu");
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Dodawanie uzytkownika HEJ!");
+        }
+
+        private void pictureBox3_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Lista typow co placa duzy hajs za internet i telefony HEJ!");
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            chat();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            chatRefresh();
         }
 
 

@@ -17,10 +17,13 @@ namespace CRM
         {
             InitializeComponent();
             textBox2.PasswordChar = '#';
+            this.ActiveControl = textBox1;
+            textBox2.KeyDown += textBox2_KeyDown;
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
+            
             Program.Logowanie(textBox1.Text,textBox2.Text);
             if(Program.zalogowano == true){
                 this.Close();
@@ -31,8 +34,13 @@ namespace CRM
         {
             Application.Exit();
         }
-
-       
+        private void textBox2_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                button1.PerformClick();
+            }
+        }
 
     }//koniec klasy
 }

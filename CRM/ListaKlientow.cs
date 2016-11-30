@@ -21,7 +21,7 @@ namespace CRM
             //int odleglosc = 25;
             // Create a new instance of the form.
             Form ListaKlientowForm = new Form();
-
+            dgv1.CellClick += dgv1_CellClick;
             // Create two buttons to use as the accept and cancel buttons.
             Button button1 = new Button();
             Button button2 = new Button();
@@ -221,7 +221,27 @@ namespace CRM
 
         }
 
+        private static void dgv1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            //idklienta,imie,nazwisko,pesel,adres_zam,adres_kor,telefon_kon,email,z_przetw,z_market,z_fak
+            string id = dgv1.Rows[e.RowIndex].Cells[0].Value.ToString();
+            string imie = dgv1.Rows[e.RowIndex].Cells[1].Value.ToString();
+            string nazwisko = dgv1.Rows[e.RowIndex].Cells[2].Value.ToString();
+            string pesel = dgv1.Rows[e.RowIndex].Cells[3].Value.ToString();
+            string adres_zam = dgv1.Rows[e.RowIndex].Cells[4].Value.ToString();
+            string adres_kor = dgv1.Rows[e.RowIndex].Cells[5].Value.ToString();
+            string t_kon = dgv1.Rows[e.RowIndex].Cells[6].Value.ToString();
+            string email = dgv1.Rows[e.RowIndex].Cells[7].Value.ToString();
 
+            if (dgv1.ReadOnly == true)
+            {
+                KlientForm klientFormForm = new KlientForm();
+                klientFormForm.Show();
+                klientFormForm.foo(id, imie, nazwisko, pesel, adres_zam, adres_kor, t_kon, email);
+            }
+            
+            
+        }
         
             
        

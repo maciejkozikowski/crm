@@ -25,7 +25,7 @@ namespace CRM
 
 
             //adapter.Dispose();
-            string sql = "select * from klient";
+            string sql = "select idklienta from klient";
             MySqlDataAdapter adapter = new MySqlDataAdapter(sql, SqlConnectionClass.myConnection);
             DataSet DS = new DataSet();
 
@@ -121,8 +121,7 @@ namespace CRM
                 
         }
 
-        private void dataGridView1_CellClick(object sender,
-    DataGridViewCellEventArgs e)
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             //idklienta,imie,nazwisko,pesel,adres_zam,adres_kor,telefon_kon,email,z_przetw,z_market,z_fak
             string id = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString();
@@ -133,11 +132,12 @@ namespace CRM
             string adres_kor = dataGridView1.Rows[e.RowIndex].Cells[5].Value.ToString();
             string t_kon = dataGridView1.Rows[e.RowIndex].Cells[6].Value.ToString();
             string email = dataGridView1.Rows[e.RowIndex].Cells[7].Value.ToString();
-
+            
             //MessageBox.Show(name);
             KlientForm klientFormForm = new KlientForm();
             klientFormForm.Show();
             klientFormForm.foo(id,imie,nazwisko,pesel,adres_zam,adres_kor,t_kon,email);
+
         }
     }
 }

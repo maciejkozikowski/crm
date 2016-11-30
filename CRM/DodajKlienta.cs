@@ -133,6 +133,7 @@ namespace CRM
 
                 
                 MessageBox.Show("Dodano klienta do bazy!");
+                rdr.Close();
                 button2.PerformClick();
 
             }
@@ -149,14 +150,20 @@ namespace CRM
            checkZgoda1.Location = new Point(eMailLabel.Left, eMailLabel.Height +  eMailLabel.Top + 10);
            checkZgoda1.Text = "Przetwarzanie";
            checkZgoda1.AutoSize = true;
+           ToolTip checkTop1 = new ToolTip();
+           checkTop1.SetToolTip(checkZgoda1, "Wyrażam zgodę na przetwarzanie moich danych osobowych" + Environment.NewLine + " dla potrzeb niezbędnych do realizacji świadczonych usług.");
 
            checkZgoda2.AutoSize = true;
            checkZgoda2.Location = new Point(checkZgoda1.Right, checkZgoda1.Top );
            checkZgoda2.Text = "Marketing";
-           
+           ToolTip checkTop2 = new ToolTip();
+           checkTop1.SetToolTip(checkZgoda2, "Wyrażam zgodę na przetwarzanie danych transmisyjnych "+Environment.NewLine+"dla celów marketingu usług telekomunikacyjnych. Dane będą przetwarzane w okresie obowiązywania umowy.");
+
            checkZgoda3.Location = new Point(checkZgoda2.Right -10 , checkZgoda2.Top);
            checkZgoda3.Text = "E-Faktura";
            checkZgoda3.AutoSize = true;
+           ToolTip checkTop3 = new ToolTip();
+           checkTop1.SetToolTip(checkZgoda3, "Wyrażam zgodę na realizację dostarczania faktur " + Environment.NewLine + "za świadczone usługi drogą elektroniczną.");
 
            //Button1 opcje
            button1.Text = "Dodaj"; // Set the text of button1 to "OK".

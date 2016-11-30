@@ -35,7 +35,11 @@ namespace CRM
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Logowanie());
-            Application.Run(new Form1());
+            if (Program.zalogowano == true)
+            {
+                Application.Run(new Form1());
+            }
+            
         }
 
        public static void Logowanie(string log, string haslo)
@@ -74,6 +78,7 @@ namespace CRM
                 SqlConnectionClass.myConnection);
                     MySqlDataReader rdr1 = cmd1.ExecuteReader();
                     zalogowano = true;
+                    rdr1.Close();
                     MessageBox.Show("Zalogowano!");
                     
                 }
