@@ -50,7 +50,7 @@ namespace CRM
 
         public void chat()
         {
-            if (richTextBox2.Text != "")
+            if (richTextBox2.Text != "" && richTextBox2.Text != defRichText)
             {
                 try
                 {
@@ -61,7 +61,7 @@ namespace CRM
                        + richTextBox2.Text                       
                        + System.Environment.NewLine
                        + "',"
-                       + "CURTIME()"
+                       + "CURTIME() + INTERVAL 8 HOUR "
                        + ");";
                     MySqlCommand cmd = new MySqlCommand(msg, SqlConnectionClass.myConnection);
 
