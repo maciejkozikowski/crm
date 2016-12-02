@@ -79,7 +79,7 @@ namespace CRM
                     MySqlDataReader rdr1 = cmd1.ExecuteReader();
                     zalogowano = true;
                     rdr1.Close();
-                    MessageBox.Show("Zalogowano!");
+                    //MessageBox.Show("Zalogowano!");
                     
                 }
                 else
