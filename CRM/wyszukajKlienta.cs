@@ -18,6 +18,8 @@ namespace CRM
             InitializeComponent();
             dataGridView1.ReadOnly = true;
             dataGridView1.CellClick += dataGridView1_CellClick;
+            this.FormClosing += WyszakajKlienta_FormClosing;
+
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -148,9 +150,16 @@ namespace CRM
                 
                 //KlientForm klientFormForm = new KlientForm();
                 
-
+                
             }
 
         }
+
+        private void WyszakajKlienta_FormClosing(Object sender, FormClosingEventArgs e)
+        {
+            Dispose();
+        }    
+
+
     }
 }

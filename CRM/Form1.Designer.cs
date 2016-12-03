@@ -34,7 +34,6 @@
             this.zakończToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.użytkownicyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.wyszukajKlientaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.listaKlientówToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dodajKlientaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pomocToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.changeLogToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -95,7 +94,6 @@
             // 
             this.użytkownicyToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.wyszukajKlientaToolStripMenuItem,
-            this.listaKlientówToolStripMenuItem,
             this.dodajKlientaToolStripMenuItem});
             this.użytkownicyToolStripMenuItem.Name = "użytkownicyToolStripMenuItem";
             this.użytkownicyToolStripMenuItem.Size = new System.Drawing.Size(54, 20);
@@ -107,13 +105,6 @@
             this.wyszukajKlientaToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
             this.wyszukajKlientaToolStripMenuItem.Text = "Wyszukaj klienta";
             this.wyszukajKlientaToolStripMenuItem.Click += new System.EventHandler(this.wyszukajKlientaToolStripMenuItem_Click);
-            // 
-            // listaKlientówToolStripMenuItem
-            // 
-            this.listaKlientówToolStripMenuItem.Name = "listaKlientówToolStripMenuItem";
-            this.listaKlientówToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
-            this.listaKlientówToolStripMenuItem.Text = "Lista klientów";
-            this.listaKlientówToolStripMenuItem.Click += new System.EventHandler(this.listaKlientówToolStripMenuItem_Click);
             // 
             // dodajKlientaToolStripMenuItem
             // 
@@ -135,21 +126,21 @@
             // changeLogToolStripMenuItem
             // 
             this.changeLogToolStripMenuItem.Name = "changeLogToolStripMenuItem";
-            this.changeLogToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.changeLogToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
             this.changeLogToolStripMenuItem.Text = "Change Log";
             this.changeLogToolStripMenuItem.Click += new System.EventHandler(this.changeLogToolStripMenuItem_Click);
             // 
             // oAutorachToolStripMenuItem
             // 
             this.oAutorachToolStripMenuItem.Name = "oAutorachToolStripMenuItem";
-            this.oAutorachToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.oAutorachToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
             this.oAutorachToolStripMenuItem.Text = "O autorach";
             this.oAutorachToolStripMenuItem.Click += new System.EventHandler(this.oAutorachToolStripMenuItem_Click);
             // 
             // oBazieToolStripMenuItem
             // 
             this.oBazieToolStripMenuItem.Name = "oBazieToolStripMenuItem";
-            this.oBazieToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.oBazieToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
             this.oBazieToolStripMenuItem.Text = "O bazie";
             // 
             // label1
@@ -333,7 +324,6 @@
         private System.Windows.Forms.ToolStripMenuItem wyszukajKlientaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem pomocToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem oAutorachToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem listaKlientówToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem changeLogToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem dodajKlientaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem oBazieToolStripMenuItem;

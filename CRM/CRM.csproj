@@ -52,6 +52,12 @@
     <Compile Include="ChangeLog.Designer.cs">
       <DependentUpon>ChangeLog.cs</DependentUpon>
     </Compile>
+    <Compile Include="DodajTelefon.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DodajTelefon.Designer.cs">
+      <DependentUpon>DodajTelefon.cs</DependentUpon>
+    </Compile>
     <Compile Include="EdycjaKlienta.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -102,6 +108,9 @@
     </Compile>
     <EmbeddedResource Include="ChangeLog.resx">
       <DependentUpon>ChangeLog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DodajTelefon.resx">
+      <DependentUpon>DodajTelefon.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="EdycjaKlienta.resx">
       <DependentUpon>EdycjaKlienta.cs</DependentUpon>

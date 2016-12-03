@@ -113,7 +113,7 @@ namespace CRM
                     
                 }
                 rdr.Close();
-                telefonyTablica = new string [100];
+                telefonyTablica = new string [liczbaNumerow];
                 #endregion
                 #region listaNumerowRegion
                 //Jakies sa numery dla tego id
@@ -239,6 +239,11 @@ namespace CRM
             EdycjaKlienta obiekt = new EdycjaKlienta();
             obiekt.foo(this.id, this.imie, this.nazwisko, this.pesel, this.adres_zam, this.adres_kor, this.telefon_kon, this.email,this.z_przetw,this.z_market,this.z_fak);
             obiekt.Show();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
         }
         
 

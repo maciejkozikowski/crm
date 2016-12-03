@@ -172,7 +172,8 @@ namespace CRM
 
         private void pictureBox3_Click(object sender, EventArgs e)
         {
-            ListaKlientow.Form();
+            wyszukajKlienta wyszukajKlientaForm = new wyszukajKlienta();
+            wyszukajKlientaForm.Show();
         }
 
         private void button1_Click(object sender, EventArgs e)

@@ -208,8 +208,7 @@ namespace CRM
                 MessageBox.Show("Błąd numer: " + ex.Number + " , " + ex.Message);
             }
 
-            
-
+           
 
 
             // Display the form as a modal dialog box.
@@ -246,12 +245,7 @@ namespace CRM
             
         }
 
-        private void ListaKlientow_FormClosing(Object sender, FormClosingEventArgs e)
-        {
-            
-
-            
-        }    
+        
        
 
 
