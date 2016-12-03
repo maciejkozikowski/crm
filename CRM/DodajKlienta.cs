@@ -42,9 +42,6 @@ namespace CRM
            CheckBox checkZgoda2 = new CheckBox();
            CheckBox checkZgoda3 = new CheckBox();
 
-
-
-
            //imieLabel opcje
            imieLabel.Text = "Imię";
            imieLabel.Location = new Point(10, 10);
@@ -68,7 +65,7 @@ namespace CRM
            //eMailLabel opcje
            eMailLabel.Text = "E-Mail";
            eMailLabel.Location = new Point(telefonLabel.Left, telefonLabel.Height + telefonLabel.Top );
-
+           
            
            //imieTextBox opcje
            imieTextBox.Location = new Point(imieLabel.Right + odleglosc, 0 + imieLabel.Top);
@@ -90,9 +87,9 @@ namespace CRM
            // Create two buttons to use as the accept and cancel buttons.
            Button button1 = new Button();
            Button button2 = new Button();
+           #region button1Region
            button1.Click += delegate
-           {
-               //MessageBox.Show("blablabla wykonuje sie niby, tak naprawde to nic sie nie dzieje bo trzeba dokonczyc kod, lololol"); //testowe okienoko
+           {               
                //button2.PerformClick(); //ma sie zamykac okno po dodaniu klienta?
                //dodajKlientaForm.Close(); //nie wiem ktory lepszy
                string checkstring1 = "0";
@@ -105,47 +102,36 @@ namespace CRM
                if (checkZgoda3.Checked)
                    checkstring3 = "1";
 
-                try
-            {
-                string sql = "INSERT INTO klient(imie,nazwisko,pesel,adres_zam,adres_kor,telefon_kon,email,z_przetw,z_market,z_fak,data_utworzenia)" 
-                    + " VALUES ('" 
-                    + imieTextBox.Text.ToString() + "', '" 
-                    + nazwiskoTextBox.Text.ToString() + "', '" 
-                    + peselTextBox.Text.ToString() + "', '" 
-                    + adresZameldowaniaTextBox.Text.ToString() + "', '" 
-                    + adresKorespondencyjnyTextBox.Text.ToString() + "', '" 
-                    + telefonTextBox.Text.ToString() + "', '"
-                    + eMailTextBox.Text.ToString() + "', '"
-                    + checkstring1 +"', '"
-                    + checkstring2 +"', '"
-                    + checkstring3 +"', "
-                    + "CURDATE()"
-                    + " );";
+               string sql = "INSERT INTO klient(imie,nazwisko,pesel,adres_zam,adres_kor,telefon_kon,email,z_przetw,z_market,z_fak,data_utworzenia)";
+               sql += " VALUES (@imie, @nazwisko, @pesel, @adres1, @adres2, @telefon, @email, '"                    
+               + checkstring1 + "', '"
+               + checkstring2 + "', '"
+               + checkstring3 + "', CURDATE());";
                 
-                  
-                //cmd.CommandText = "SELECT count(*) from tbUser WHERE UserName = @username and password=@password";
-                //command.Parameters.Add("@username", txtUserName.Text);
-                //command.Parameters.Add("@password", txtPassword.Text);
-
-                //treba to przepisac i zrobic tak jak wyzej, z tego co wyczytalem jak tak sie robi o mozna sie dobrac do komedy i hakowac -->>> https://www.owasp.org/index.php/SQL_Injection
                 MySqlCommand cmd = new MySqlCommand(sql, SqlConnectionClass.myConnection);
-                MySqlDataReader rdr = cmd.ExecuteReader();
+                cmd.Parameters.AddWithValue("@imie", imieTextBox.Text);
+                cmd.Parameters.AddWithValue("@nazwisko", nazwiskoTextBox.Text);
+                cmd.Parameters.AddWithValue("@pesel", peselTextBox.Text);
+                cmd.Parameters.AddWithValue("@adres1", adresZameldowaniaTextBox.Text);
+                cmd.Parameters.AddWithValue("@adres2", adresKorespondencyjnyTextBox.Text);
+                cmd.Parameters.AddWithValue("@telefon", telefonTextBox.Text);
+                cmd.Parameters.AddWithValue("@email", eMailTextBox.Text);
 
-                
+            try
+            {
+                MySqlDataReader rdr = cmd.ExecuteReader();
                 MessageBox.Show("Dodano klienta do bazy!");
                 rdr.Close();
                 button2.PerformClick();
-
             }
-
             catch (MySqlException ex)
             {
                 MessageBox.Show("Błąd numer: " + ex.Number + " , " + ex.Message);
-            }
-                
+            }              
                 
            };
-           
+           #endregion
+
            //checkboxy opcje
            checkZgoda1.Location = new Point(eMailLabel.Left, eMailLabel.Height +  eMailLabel.Top + 10);
            checkZgoda1.Text = "Przetwarzanie";
@@ -219,15 +205,8 @@ namespace CRM
            dodajKlientaForm.Controls.Add(checkZgoda3);
 
            // Display the form as a modal dialog box.
-
            dodajKlientaForm.ShowDialog();
 
-          
-           
-
-
        }
-
-
     }
 }

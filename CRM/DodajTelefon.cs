@@ -28,6 +28,7 @@ namespace CRM
         {
             Dispose();
         }
+
         void CzytajAbonamenty()
         {
             string sql = "select id, nazwa, cenaabonament, cenazaminute, cenazasms, cenazamb from abonament";
@@ -44,8 +45,7 @@ namespace CRM
             }
             rdr.Close();
             comboBox1.SelectedIndex = 0;
-        }
-        
+        }        
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -53,16 +53,16 @@ namespace CRM
             sql += "insert into pakietrozmowy values(@numer, current_timestamp(), current_timestamp()); ";
             sql += "insert into pakietsmsy values(@numer, current_timestamp(), current_timestamp()); ";
             sql += "insert into pakietinternet values(@numer, current_timestamp(), current_timestamp()); ";
+
             MySqlCommand cmd = new MySqlCommand(sql, SqlConnectionClass.myConnection);
             cmd.Parameters.AddWithValue("@numer", textBox1.Text);
             cmd.Parameters.AddWithValue("@idklienta", this.id);
             cmd.Parameters.AddWithValue("@abonament", lista[comboBox1.SelectedIndex].id);
             try
             {
-                if (SqlConnectionClass.myConnection.State == ConnectionState.Closed)
-                {
+                if (SqlConnectionClass.myConnection.State == ConnectionState.Closed)                
                     SqlConnectionClass.myConnection.Open();
-                }
+                
                 MySqlDataReader rdr = cmd.ExecuteReader();
                 MessageBox.Show("Dodano numer!");
                 rdr.Close();
@@ -73,7 +73,6 @@ namespace CRM
                     MessageBox.Show("Taki numer już istnieje!");
                 else
                 MessageBox.Show("Błąd numer: " + ex.Number + " , " + ex.Message);
-
             }
         }
         public void JakieId(string id)
@@ -92,8 +91,7 @@ namespace CRM
             label3.Text = "Abonament: "+lista[indexwybrany].cenaabonament+" zł";
             label4.Text = "Minuta: "+lista[indexwybrany].cenazaminute+" zł";
             label5.Text = "Sms: "+lista[indexwybrany].cenazasms + " zł";
-            label6.Text = "MB: " +lista[indexwybrany].cenazamb + " zł";
-            
+            label6.Text = "MB: " +lista[indexwybrany].cenazamb + " zł";            
         }
 
 
@@ -112,6 +110,5 @@ namespace CRM
             this.cenazamb = cenazamb;
         }
         public Abonament() { }
-
     }
 }

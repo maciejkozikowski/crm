@@ -19,12 +19,7 @@ namespace CRM
         public static string userId = "0";
         public static string userLastLogin;
         public static string userName;
-        public static bool zalogowano = false;
-        
-        
-
-        
-
+        public static bool zalogowano = false;        
         
         /// <summary>
         /// The main entry point for the application.
@@ -34,79 +29,54 @@ namespace CRM
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+
+            //Uruchom forma do logowania
             Application.Run(new Logowanie());
-            if (Program.zalogowano == true)
-            {
-                Application.Run(new Form1());
-            }
-            
+
+            //Jeśli poprawne dane do logowania -> uruchom głównego forma
+            if (Program.zalogowano == true)            
+                Application.Run(new Form1()); 
         }
 
        public static void Logowanie(string log, string haslo)
-        {
-            
-            //2 server: 
-            //MySqlConnection myConnection = new MySqlConnection();
+        {             
+                MySqlCommand cmd = new MySqlCommand("select id,name,lastlogin from users where login = @log and password = @haslo;", SqlConnectionClass.myConnection);
+                cmd.Parameters.AddWithValue("@log", log);
+                cmd.Parameters.AddWithValue("@haslo", haslo);
+
             try
-            {
-                
-
-                MySqlCommand cmd = new MySqlCommand("select id,name,lastlogin from users where login = '" + log + "' and password = '" + haslo + "';",
-                   SqlConnectionClass.myConnection);
-
+                { 
                 //Czy jest polaczenie z baza ?
-                if (SqlConnectionClass.myConnection.State == ConnectionState.Closed) 
-                {
-                    SqlConnectionClass.myConnection.Open();
-                }
+                if (SqlConnectionClass.myConnection.State == ConnectionState.Closed)                
+                    SqlConnectionClass.myConnection.Open();     
+           
                 MySqlDataReader rdr = cmd.ExecuteReader();
 
                 while (rdr.Read())
                 {
                     userId = rdr[0].ToString();                      
                     userName = rdr[1].ToString();
-                    userLastLogin = rdr[2].ToString(); 
-                    
-                    
+                    userLastLogin = rdr[2].ToString();   
                 }
                 rdr.Close();
-
                 
+                // Jeśli udało się zalogować, zmienia date ostatniego logowania użytkownika na teraz
                 if (userId != "0")
                 {
-                    MySqlCommand cmd1 = new MySqlCommand("Update users set lastlogin = now() + INTERVAL 8 HOUR where id = '" + userId + "';",
-                SqlConnectionClass.myConnection);
+                    MySqlCommand cmd1 = new MySqlCommand("Update users set lastlogin = now() + INTERVAL 8 HOUR where id = @userId;", SqlConnectionClass.myConnection);
+                    cmd1.Parameters.AddWithValue("@userId", userId);
                     MySqlDataReader rdr1 = cmd1.ExecuteReader();
                     zalogowano = true;
                     rdr1.Close();
-                    //MessageBox.Show("Zalogowano!");
-                    
                 }
                 else
-                {
                     MessageBox.Show("Zły login/hasło!");
-                    
-
-                }
-
-
-
             }
 
             catch (MySql.Data.MySqlClient.MySqlException ex)
             {
                 MessageBox.Show("Błąd numer: " + ex.Number + " , " + ex.Message);
-            }
-
-
-
-
-
-
-
-
-
-
+            }   
         }
     }
 }

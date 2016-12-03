@@ -16,15 +16,16 @@ namespace CRM
         public Logowanie()
         {
             InitializeComponent();
+            //Zamienia znaki w texboxie na kod
             textBox2.PasswordChar = '#';
             this.ActiveControl = textBox1;
             textBox2.KeyDown += textBox2_KeyDown;
         }
 
         private void button1_Click(object sender, EventArgs e)
-        {
-            
+        {            
             Program.Logowanie(textBox1.Text,textBox2.Text);
+            //Jeśli udało się zalogować, zamyka forma do logowania
             if(Program.zalogowano == true){
                 this.Close();
             }
@@ -34,6 +35,8 @@ namespace CRM
         {
             Application.Exit();
         }
+
+        //Jeśli enter zatwierdza dane logowania
         private void textBox2_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
@@ -42,5 +45,5 @@ namespace CRM
             }
         }
 
-    }//koniec klasy
+    }
 }
