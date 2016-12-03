@@ -120,7 +120,7 @@ namespace CRM
                                             adapter.UpdateCommand = mcb.GetUpdateCommand();
                                             adapter.Update(changes);
                                             ((DataTable)dgv1.DataSource).AcceptChanges();
-                                            MessageBox.Show("okej");
+                                            MessageBox.Show("Edycja przebiegła pomyślnie");
                                         }
                                         catch (MySqlException ex)
                                         {
@@ -232,18 +232,26 @@ namespace CRM
             string adres_kor = dgv1.Rows[e.RowIndex].Cells[5].Value.ToString();
             string t_kon = dgv1.Rows[e.RowIndex].Cells[6].Value.ToString();
             string email = dgv1.Rows[e.RowIndex].Cells[7].Value.ToString();
+            string z_przetw = dgv1.Rows[e.RowIndex].Cells[8].Value.ToString();
+            string z_market = dgv1.Rows[e.RowIndex].Cells[9].Value.ToString();
+            string z_fak = dgv1.Rows[e.RowIndex].Cells[10].Value.ToString();
 
             if (dgv1.ReadOnly == true)
             {
                 KlientForm klientFormForm = new KlientForm();
                 klientFormForm.Show();
-                klientFormForm.foo(id, imie, nazwisko, pesel, adres_zam, adres_kor, t_kon, email);
+                klientFormForm.foo(id, imie, nazwisko, pesel, adres_zam, adres_kor, t_kon, email,z_przetw,z_market,z_fak);
             }
             
             
         }
-        
+
+        private void ListaKlientow_FormClosing(Object sender, FormClosingEventArgs e)
+        {
             
+
+            
+        }    
        
 
 

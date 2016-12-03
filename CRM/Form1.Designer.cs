@@ -36,9 +36,6 @@
             this.wyszukajKlientaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.listaKlientówToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dodajKlientaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.generatoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.generatorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.klientówToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pomocToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.changeLogToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.oAutorachToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -72,7 +69,6 @@
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.menuToolStripMenuItem,
             this.użytkownicyToolStripMenuItem,
-            this.generatoryToolStripMenuItem,
             this.pomocToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
@@ -126,27 +122,6 @@
             this.dodajKlientaToolStripMenuItem.Text = "Dodaj klienta";
             this.dodajKlientaToolStripMenuItem.Click += new System.EventHandler(this.dodajKlientaToolStripMenuItem_Click);
             // 
-            // generatoryToolStripMenuItem
-            // 
-            this.generatoryToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.generatorToolStripMenuItem,
-            this.klientówToolStripMenuItem});
-            this.generatoryToolStripMenuItem.Name = "generatoryToolStripMenuItem";
-            this.generatoryToolStripMenuItem.Size = new System.Drawing.Size(77, 20);
-            this.generatoryToolStripMenuItem.Text = "Generatory";
-            // 
-            // generatorToolStripMenuItem
-            // 
-            this.generatorToolStripMenuItem.Name = "generatorToolStripMenuItem";
-            this.generatorToolStripMenuItem.Size = new System.Drawing.Size(120, 22);
-            this.generatorToolStripMenuItem.Text = "Faktury";
-            // 
-            // klientówToolStripMenuItem
-            // 
-            this.klientówToolStripMenuItem.Name = "klientówToolStripMenuItem";
-            this.klientówToolStripMenuItem.Size = new System.Drawing.Size(120, 22);
-            this.klientówToolStripMenuItem.Text = "Klientów";
-            // 
             // pomocToolStripMenuItem
             // 
             this.pomocToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -160,21 +135,21 @@
             // changeLogToolStripMenuItem
             // 
             this.changeLogToolStripMenuItem.Name = "changeLogToolStripMenuItem";
-            this.changeLogToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
+            this.changeLogToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.changeLogToolStripMenuItem.Text = "Change Log";
             this.changeLogToolStripMenuItem.Click += new System.EventHandler(this.changeLogToolStripMenuItem_Click);
             // 
             // oAutorachToolStripMenuItem
             // 
             this.oAutorachToolStripMenuItem.Name = "oAutorachToolStripMenuItem";
-            this.oAutorachToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
+            this.oAutorachToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.oAutorachToolStripMenuItem.Text = "O autorach";
             this.oAutorachToolStripMenuItem.Click += new System.EventHandler(this.oAutorachToolStripMenuItem_Click);
             // 
             // oBazieToolStripMenuItem
             // 
             this.oBazieToolStripMenuItem.Name = "oBazieToolStripMenuItem";
-            this.oBazieToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
+            this.oBazieToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.oBazieToolStripMenuItem.Text = "O bazie";
             // 
             // label1
@@ -364,9 +339,6 @@
         private System.Windows.Forms.ToolStripMenuItem oBazieToolStripMenuItem;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ToolStripMenuItem generatoryToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem generatorToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem klientówToolStripMenuItem;
         private System.Windows.Forms.RichTextBox richTextBox1;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;

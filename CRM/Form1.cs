@@ -85,6 +85,7 @@ namespace CRM
             
             richTextBox2.Text = "";
         }
+
         void chatRefresh()
         {
             
@@ -118,14 +119,12 @@ namespace CRM
             {
                 MessageBox.Show("Błąd numer: " + ex.Number + " , " + ex.Message);
             }
-        }
-        
+        }        
 
         private void zakończToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
-
         
         private void dodajKlientaToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -166,14 +165,14 @@ namespace CRM
             MessageBox.Show("jakies drukowanie bedzie tu");
         }
 
-        private void pictureBox1_Click(object sender, EventArgs e)
+        private void pictureBox1_Click(object sender, EventArgs e) //Dodawania uzytkownika
         {
-            MessageBox.Show("Dodawanie uzytkownika HEJ!");
+            DodajKlienta.Form();
         }
 
         private void pictureBox3_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Lista typow co placa duzy hajs za internet i telefony HEJ!");
+            ListaKlientow.Form();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -185,15 +184,7 @@ namespace CRM
         {
             chatRefresh();
         }
-
-
-
-
     }
-
-
-
-   
 
 }
 

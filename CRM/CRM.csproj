@@ -52,6 +52,12 @@
     <Compile Include="ChangeLog.Designer.cs">
       <DependentUpon>ChangeLog.cs</DependentUpon>
     </Compile>
+    <Compile Include="EdycjaKlienta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EdycjaKlienta.Designer.cs">
+      <DependentUpon>EdycjaKlienta.cs</DependentUpon>
+    </Compile>
     <Compile Include="GeneratorFaktur.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -96,6 +102,9 @@
     </Compile>
     <EmbeddedResource Include="ChangeLog.resx">
       <DependentUpon>ChangeLog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EdycjaKlienta.resx">
+      <DependentUpon>EdycjaKlienta.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>

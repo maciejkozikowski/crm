@@ -13,22 +13,26 @@ namespace CRM
 {
     public partial class KlientForm : Form
     {
-        string id;
-        string imie;
-        string nazwisko;
-        string pesel;
-        string adres_zam;
-        string adres_kor;
-        string telefon_kon;
-        string email;
+        public string id;
+        public string imie;
+        public string nazwisko;
+        public string pesel;
+        public string adres_zam;
+        public string adres_kor;
+        public string telefon_kon;
+        public string email;
+        public string z_przetw;
+        public string z_market;
+        public string z_fak;
+
         string wybranyNumer;
 
         public KlientForm()
         {
             InitializeComponent();
         }
-        //idklienta,imie,nazwisko,pesel,adres_zam,adres_kor,telefon_kon,email,z_przetw,z_market,z_fak
-        public void foo(string id,string imie,string nazwisko, string pesel,string adres_zam,string adres_kor, string telefon_kon,string email){
+       
+        public void foo(string id,string imie,string nazwisko, string pesel,string adres_zam,string adres_kor, string telefon_kon,string email,string z_przetw, string z_market, string z_fak){
             
             this.Text = imie + " " + nazwisko;
             //MessageBox.Show(id + imie + nazwisko + email); // test czy dziala
@@ -40,6 +44,11 @@ namespace CRM
             this.adres_zam = adres_zam;
             this.telefon_kon = telefon_kon;
             this.email = email;
+            this.z_przetw = z_przetw;
+            this.z_market = z_market;
+            this.z_fak = z_fak;
+
+
             updateDane();
             IleTelefonow();
             Faktura();
@@ -69,11 +78,8 @@ namespace CRM
             label9.Text = "Adres e-mail: " + email;
 
 
-            
-
-
-
         }
+
         void IleTelefonow()
         {
 
@@ -156,7 +162,6 @@ namespace CRM
 
         }
 
-
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             label2.Text = listBox1.SelectedItem.ToString();
@@ -228,9 +233,14 @@ namespace CRM
         {
 
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            EdycjaKlienta obiekt = new EdycjaKlienta();
+            obiekt.foo(this.id, this.imie, this.nazwisko, this.pesel, this.adres_zam, this.adres_kor, this.telefon_kon, this.email,this.z_przetw,this.z_market,this.z_fak);
+            obiekt.Show();
+        }
         
-
-
 
     }
     public class Telefon

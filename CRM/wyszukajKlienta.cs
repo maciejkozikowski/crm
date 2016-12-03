@@ -123,6 +123,8 @@ namespace CRM
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+
+            
             //idklienta,imie,nazwisko,pesel,adres_zam,adres_kor,telefon_kon,email,z_przetw,z_market,z_fak
             string id = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString();
             string imie = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
@@ -132,11 +134,22 @@ namespace CRM
             string adres_kor = dataGridView1.Rows[e.RowIndex].Cells[5].Value.ToString();
             string t_kon = dataGridView1.Rows[e.RowIndex].Cells[6].Value.ToString();
             string email = dataGridView1.Rows[e.RowIndex].Cells[7].Value.ToString();
+            string z_przetw = dataGridView1.Rows[e.RowIndex].Cells[8].Value.ToString();
+            string z_market = dataGridView1.Rows[e.RowIndex].Cells[9].Value.ToString();
+            string z_fak = dataGridView1.Rows[e.RowIndex].Cells[10].Value.ToString();
+
             
             //MessageBox.Show(name);
-            KlientForm klientFormForm = new KlientForm();
-            klientFormForm.Show();
-            klientFormForm.foo(id,imie,nazwisko,pesel,adres_zam,adres_kor,t_kon,email);
+            if (dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString() != "")
+            {
+                KlientForm klientFormForm = new KlientForm();
+                    klientFormForm.Show();
+                    klientFormForm.foo(id, imie, nazwisko, pesel, adres_zam, adres_kor, t_kon, email, z_przetw, z_market, z_fak);
+                
+                //KlientForm klientFormForm = new KlientForm();
+                
+
+            }
 
         }
     }
