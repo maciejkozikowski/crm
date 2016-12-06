@@ -70,12 +70,6 @@
     <Compile Include="GeneratorFaktur.Designer.cs">
       <DependentUpon>GeneratorFaktur.cs</DependentUpon>
     </Compile>
-    <Compile Include="GeneratorKlientow.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="GeneratorKlientow.Designer.cs">
-      <DependentUpon>GeneratorKlientow.cs</DependentUpon>
-    </Compile>
     <Compile Include="KlientForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -88,6 +82,12 @@
     </Compile>
     <Compile Include="Logowanie.Designer.cs">
       <DependentUpon>Logowanie.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NowyKlient.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NowyKlient.Designer.cs">
+      <DependentUpon>NowyKlient.cs</DependentUpon>
     </Compile>
     <Compile Include="oAutorach.cs" />
     <Compile Include="DodajKlienta.cs" />
@@ -123,6 +123,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Logowanie.resx">
       <DependentUpon>Logowanie.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NowyKlient.resx">
+      <DependentUpon>NowyKlient.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

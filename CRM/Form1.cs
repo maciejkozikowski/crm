@@ -114,7 +114,8 @@ namespace CRM
         
         private void dodajKlientaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            DodajKlienta.Form();           
+            NowyKlient NowyKlientForm = new NowyKlient();
+            NowyKlientForm.Show();           
         }
 
         private void oAutorachToolStripMenuItem_Click(object sender, EventArgs e)
@@ -149,9 +150,10 @@ namespace CRM
             MessageBox.Show("jakies drukowanie bedzie tu");
         }
 
-        private void pictureBox1_Click(object sender, EventArgs e) //Dodawania uzytkownika
+        private void pictureBox1_Click(object sender, EventArgs e) //Dodawania klienta
         {
-            DodajKlienta.Form();
+            NowyKlient NowyKlientForm = new NowyKlient();
+            NowyKlientForm.Show();
         }
 
         private void pictureBox3_Click(object sender, EventArgs e)
