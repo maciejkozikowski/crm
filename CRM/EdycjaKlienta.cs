@@ -18,7 +18,7 @@ namespace CRM
         public EdycjaKlienta()
         {
             InitializeComponent();
-                        
+            this.FormClosing += EdycjaKlienta_FormClosing;
         }
         //obiekt.foo(this.id, this.imie, this.nazwisko, this.pesel, this.adres_zam, this.adres_kor, this.telefon_kon, this.email);
         public void foo(string id, string imie, string nazwisko, string pesel, string adres_zam, string adres_kor, string telefon_kon, string email, string z_przetw, string z_market, string z_fak)
@@ -78,5 +78,17 @@ namespace CRM
            }
 
         }
+
+        private void EdycjaKlienta_FormClosing(Object sender, FormClosingEventArgs e)
+        {
+            
+            Dispose();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+             Dispose();        
+        }
+
     }
 }

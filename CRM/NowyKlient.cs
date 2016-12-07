@@ -37,9 +37,14 @@ namespace CRM
         public void Generacja()
         {
             #region BazaDanychRegion
-            string[] ImionaMeskieTablica = new string[] { "Marian", "Kamil", "Maciek", "Bartek", "Adam", "Jan", "Paweł" };
+            string[] ImionaMeskieTablica = new string[] { 
+                //Na litere A
+                "Adam","Andrzej",
+                "Marian", "Kamil", "Maciek", "Bartek", "Jan", "Paweł", "Józef" };
             string[] ImionaZenskieTablica = new string[] { 
+                //A
                "Ada", "Adela", "Adelajda", "Adrianna", "Agata", "Agnieszka", "Aldona", "Aleksandra", "Alicja", "Alina", "Amanda", "Amelia", "Anastazja", "Andżelika", "Aneta", "Anita", "Anna", "Antonina",
+               //B itd.
                "Barbara","Beata","Berenika","Bernadeta","Blanka","Bogusława","Bożena",
                "Cecylia","Celina","Czesława",
                "Dagmara","Danuta","Daria","Diana","Dominika","Dorota",
@@ -77,7 +82,7 @@ namespace CRM
             string wybraneImie;
             string wybraneNazwisko;
             string wybranyEmail;
-            string telefonWybrany = "+48";
+            string telefonWybrany = "48";
             string adresZamieszkaniaWybrany;
             string adresKorespondencyjnyWybrany;
 
