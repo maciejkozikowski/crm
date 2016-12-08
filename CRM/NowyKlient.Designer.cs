@@ -161,6 +161,7 @@
             // peselTextBox
             // 
             this.peselTextBox.Location = new System.Drawing.Point(167, 72);
+            this.peselTextBox.MaxLength = 11;
             this.peselTextBox.Name = "peselTextBox";
             this.peselTextBox.Size = new System.Drawing.Size(100, 20);
             this.peselTextBox.TabIndex = 12;
@@ -182,6 +183,7 @@
             // telefonTextBox
             // 
             this.telefonTextBox.Location = new System.Drawing.Point(167, 165);
+            this.telefonTextBox.MaxLength = 11;
             this.telefonTextBox.Name = "telefonTextBox";
             this.telefonTextBox.Size = new System.Drawing.Size(237, 20);
             this.telefonTextBox.TabIndex = 15;

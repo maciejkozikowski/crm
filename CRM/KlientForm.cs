@@ -327,20 +327,26 @@ namespace CRM
             MySqlCommand cmd = new MySqlCommand(sql,
                SqlConnectionClass.myConnection);
             cmd.Parameters.AddWithValue("@id", id);
-
-            //Czy jest polaczenie z baza ?
-            if (SqlConnectionClass.myConnection.State == ConnectionState.Closed)
+            try
             {
-                SqlConnectionClass.myConnection.Open();
-            }
-            MySqlDataReader rdr = cmd.ExecuteReader();
 
-            while (rdr.Read())
+                //Czy jest polaczenie z baza ?
+                if (SqlConnectionClass.myConnection.State == ConnectionState.Closed)
+                {
+                    SqlConnectionClass.myConnection.Open();
+                }
+                MySqlDataReader rdr = cmd.ExecuteReader();
+
+                while (rdr.Read())
+                {
+                    value = rdr[0].ToString();
+                }
+                rdr.Close();
+            }
+            catch (MySql.Data.MySqlClient.MySqlException ex)
             {
-                value= rdr[0].ToString();
+                MessageBox.Show("Błąd numer: " + ex.Number + " , " + ex.Message);
             }
-            rdr.Close();
-
             char delimiter = '-';
             string[] substrings = value.Split(delimiter);
             int rok = 1;
@@ -352,8 +358,8 @@ namespace CRM
             }
 
 
-            
-            while(true){
+            #region lista faktur
+            while (true){
                 if (rok == DateTime.Today.Year && miesiac == DateTime.Today.Month)
                 {
                     break;
@@ -376,7 +382,7 @@ namespace CRM
             {
                 listBox2.Items.Add(i.nazwafaktury);
             }
-
+            #endregion
 
         }
 
@@ -394,7 +400,7 @@ namespace CRM
             DodajTelefonForm.JakieId(this.id);
             DodajTelefonForm.Show();
         }
-
+        //ustawianie pakietu darmowe rozmowy
         private void button4_Click(object sender, EventArgs e)
         {
             if (label16.Text == "Włączony")
@@ -441,8 +447,8 @@ namespace CRM
                     MessageBox.Show("Błąd numer: " + ex.Number + " , " + ex.Message);
                 }
             }
-        }
-
+        } 
+        //ustawianie pakietu darmowe smsy
         private void button5_Click(object sender, EventArgs e)
         {
             if (label17.Text == "Włączony")
@@ -490,7 +496,7 @@ namespace CRM
                 }
             }
         }
-
+        //ustawianie pakietu darmowy internet
         private void button6_Click(object sender, EventArgs e)
         {
             if (label18.Text == "Włączony")
@@ -574,6 +580,7 @@ namespace CRM
        public List<Telefon> listaTelefonow2; 
        public string nazwafaktury, imieF, nazwiskoF, adresF;
        public int rok, miesiac;
+        //tablice przechowujące wielkość aktywności i opłaty (dla abo nazwa/oplata)
        public string[] abonament;
        public string[] abonamentcena;
        public string[] rozmowy;
