@@ -27,6 +27,7 @@ namespace CRM
             float sumawszystko=0; //suma całej faktury
             string miesiac123; //określa miesiąc z faktury
             int i = 0; //index telefonu
+            string sql="";
             foreach (var telefon in a.listaTelefonow2) // wykonuje dla każdego telefonu konkretnego klienta
             {
                 wypis += Environment.NewLine +"Numer telefonu: " +telefon.numer.ToString();
@@ -34,7 +35,7 @@ namespace CRM
                 miesiac123 = a.rok+"-"+a.miesiac;
 
                 #region MiesiacRozmowyRegion liczenie opłat za rozmowy dla konkretnego numeru
-                string sql = "select czaspolaczen,oplata from miesiacrozmowy where numer =@numer and miesiac =@miesiac;";
+                sql = "select czaspolaczen,oplata from miesiacrozmowy where numer =@numer and miesiac =@miesiac;";
 
                 MySqlCommand cmd = new MySqlCommand(sql, SqlConnectionClass.myConnection);
                 cmd.Parameters.AddWithValue("@numer", telefon.numer.ToString());
@@ -168,7 +169,38 @@ namespace CRM
                 i++;
                   
             }
-            wypis += Environment.NewLine+"Suma faktury: " + sumawszystko+"zł"; // wypisanie sumy dla całej faktury
+            sql = "SELECT numer_rachunku FROM konta where idklienta=@id;";
+            string numerRachunku = "";
+                MySqlCommand cmd4 = new MySqlCommand(sql, SqlConnectionClass.myConnection);
+                cmd4.Parameters.AddWithValue("@id",a.id);
+                //Czy jest polaczenie z baza ?
+                try
+                {
+                    if (SqlConnectionClass.myConnection.State == ConnectionState.Closed)
+                    {
+                        SqlConnectionClass.myConnection.Open();
+                    }
+                    MySqlDataReader rdr4 = cmd4.ExecuteReader();
+                    while (rdr4.Read())
+                    {
+                        numerRachunku = rdr4[0].ToString();
+                    }
+                    rdr4.Close();
+                }
+                catch (MySql.Data.MySqlClient.MySqlException ex)
+                {
+                    MessageBox.Show("Błąd numer: " + ex.Number + " , " + ex.Message);
+                }
+            wypis += Environment.NewLine+"Suma faktury: " + sumawszystko+"zł" + Environment.NewLine; // wypisanie sumy dla całej faktury
+
+            for (int j = 4; j <= numerRachunku.Length; j += 4)
+            {
+                numerRachunku = numerRachunku.Insert(j, " ");
+                j++;
+            }
+
+            wypis += "Numer rachunku do wpłat: " + numerRachunku + Environment.NewLine;
+
             WypiszDoRicha();
                 #endregion
         }
