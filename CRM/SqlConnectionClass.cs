@@ -51,8 +51,25 @@ namespace CRM
 
         }
 
-        public static string updateLastKlient()
+        public static string updateLastKlient(string dodajemy)
         {
+            Program.ostatnio = "";
+            int j=0;
+            //Jesli ma sortowac po id 1,2,3 itd
+            Array.Sort(Program.ostatnioTablica);            
+            foreach (string strink in Program.ostatnioTablica)
+            {
+                if (j == 0)
+                {
+                    Program.ostatnio += Program.ostatnioTablica[j];
+                }
+                else
+                {
+                    Program.ostatnio += "-" + Program.ostatnioTablica[j];
+                }
+                j++;
+            }
+            Program.ostatnio += "-" + dodajemy;
             string a = "";
             if (myConnection.State == ConnectionState.Closed)
             {
@@ -60,7 +77,7 @@ namespace CRM
             }
             try
             {
-                MySqlCommand cmd = new MySqlCommand("Update users set lasteditedclient = @lastKlients where  id = @userId");
+                MySqlCommand cmd = new MySqlCommand("Update users set lasteditedclient = @lastKlients where id = @userId", SqlConnectionClass.myConnection);
                 cmd.Parameters.AddWithValue("@lastKlients", Program.ostatnio);
                 cmd.Parameters.AddWithValue("@userId", Program.userId);
                 MySqlDataReader rdr = cmd.ExecuteReader();

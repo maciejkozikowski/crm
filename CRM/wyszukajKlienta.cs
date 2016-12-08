@@ -161,6 +161,7 @@ namespace CRM
         //Klikniecie na tabele przenosi do klient forma
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            bool dodaj = true;
             if (dataGridView1.ReadOnly == true)
             {
                 //idklienta,imie,nazwisko,pesel,adres_zam,adres_kor,telefon_kon,email,z_przetw,z_market,z_fak
@@ -179,6 +180,16 @@ namespace CRM
                 if (dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString() != "")
                 {
                     KlientForm klientFormForm = new KlientForm();
+                    for (int i = 0; i < Program.ostatnioTablica.Length; i++)
+                    {
+                        if(Program.ostatnioTablica[i] == id.ToString())
+                        {
+                            dodaj = false;
+                        }
+
+                    }
+                    if(dodaj)
+                        SqlConnectionClass.updateLastKlient(id.ToString());
                     klientFormForm.Show();
                     klientFormForm.foo(id, imie, nazwisko, pesel, adres_zam, adres_kor, t_kon, email, z_przetw, z_market, z_fak);
                 }

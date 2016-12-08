@@ -29,6 +29,7 @@ namespace CRM
                 //this.ActiveControl = richTextBox2; // ma byc aktywny na starcie czat, okienko do wpisywania
                 richTextBox2.GotFocus += richTextBox2_GotFocus;
                 richTextBox2.LostFocus += richTextBox2_LostFocus;
+                
                 richTextBox2.Text = defRichText;
                 richTextBox2.ForeColor = Color.LightGray;
                 int j = 0;
@@ -63,6 +64,7 @@ namespace CRM
 
         }
 
+        
         //Czat 
         public void chat()
         {
@@ -178,6 +180,39 @@ namespace CRM
         private void button2_Click(object sender, EventArgs e)
         {
             chatRefresh();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            string imie="", nazwisko="", pesel="" ,adres_zam="", adres_kor="", t_kon="" ,email="", z_przetw="" ,z_market="", z_fak="";
+            string sql = "select imie,nazwisko,pesel,adres_zam,adres_kor,telefon_kon,email,z_przetw,z_market,z_fak from klient where idklienta = @id";
+
+            MySqlCommand cmd = new MySqlCommand(sql, SqlConnectionClass.myConnection);
+            cmd.Parameters.AddWithValue("@id", Program.ostatnioTablica[listBox1.SelectedIndex]);
+            if (listBox1.SelectedIndex >= 0)
+            {
+                MySqlDataReader rdr = cmd.ExecuteReader();
+                
+                while (rdr.Read())
+                {
+                    imie = rdr[0].ToString();
+                    nazwisko= rdr[1].ToString();
+                    pesel = rdr[2].ToString();
+                    adres_zam = rdr[3].ToString();
+                    adres_kor = rdr[4].ToString(); 
+                    t_kon = rdr[5].ToString();
+                    email = rdr[6].ToString();
+                    z_przetw = rdr[7].ToString();
+                    z_market = rdr[8].ToString();
+                    z_fak = rdr[9].ToString();
+
+                }
+                rdr.Close();        
+                KlientForm klientFormForm = new KlientForm();
+
+                klientFormForm.Show();
+                klientFormForm.foo(Program.ostatnioTablica[listBox1.SelectedIndex], imie, nazwisko, pesel, adres_zam, adres_kor, t_kon, email, z_przetw, z_market, z_fak);
+            }
         }
     }
 

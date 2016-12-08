@@ -64,6 +64,12 @@
     <Compile Include="GeneratorFaktur.Designer.cs">
       <DependentUpon>GeneratorFaktur.cs</DependentUpon>
     </Compile>
+    <Compile Include="HistoriaPolaczen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HistoriaPolaczen.Designer.cs">
+      <DependentUpon>HistoriaPolaczen.cs</DependentUpon>
+    </Compile>
     <Compile Include="KlientForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -109,6 +115,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GeneratorFaktur.resx">
       <DependentUpon>GeneratorFaktur.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HistoriaPolaczen.resx">
+      <DependentUpon>HistoriaPolaczen.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="KlientForm.resx">
       <DependentUpon>KlientForm.cs</DependentUpon>
