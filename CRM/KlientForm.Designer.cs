@@ -324,27 +324,27 @@
             this.label18.AutoSize = true;
             this.label18.Location = new System.Drawing.Point(120, 88);
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(41, 13);
+            this.label18.Size = new System.Drawing.Size(61, 13);
             this.label18.TabIndex = 5;
-            this.label18.Text = "label18";
+            this.label18.Text = "Wyłączony";
             // 
             // label17
             // 
             this.label17.AutoSize = true;
             this.label17.Location = new System.Drawing.Point(120, 54);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(41, 13);
+            this.label17.Size = new System.Drawing.Size(61, 13);
             this.label17.TabIndex = 4;
-            this.label17.Text = "label17";
+            this.label17.Text = "Wyłączony";
             // 
             // label16
             // 
             this.label16.AutoSize = true;
             this.label16.Location = new System.Drawing.Point(120, 20);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(41, 13);
+            this.label16.Size = new System.Drawing.Size(61, 13);
             this.label16.TabIndex = 3;
-            this.label16.Text = "label16";
+            this.label16.Text = "Wyłączony";
             // 
             // label15
             // 

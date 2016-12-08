@@ -19,15 +19,17 @@ namespace CRM
             InitializeComponent();
             //LiczFaktury
             wypis += a.imieF + " " + a.nazwiskoF + Environment.NewLine;
-            wypis += a.id + Environment.NewLine;
-            wypis += a.adresF + Environment.NewLine;
-            wypis += a.nazwafaktury + Environment.NewLine;
+            wypis += "" + a.adresF + Environment.NewLine;
+            wypis += "Numer klienta: " + a.id + Environment.NewLine;            
+            wypis += "Faktura: " +a.nazwafaktury + Environment.NewLine;
 
             string miesiac123;
             int i = 0;
             foreach (var telefon in a.listaTelefonow2)
             {
-                wypis += telefon.numer.ToString();
+                wypis += Environment.NewLine + telefon.numer.ToString();
+                wypis += Environment.NewLine + "- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -";
+
                 //MessageBox.Show("XD"); //test
                 #region MiesiacRozmowyRegion
                 //Ile jest numerow dlatego id
@@ -52,7 +54,7 @@ namespace CRM
                     a.rozmowycena[i] = rdr[1].ToString();
                 }
                 rdr.Close();
-                wypis += Environment.NewLine+ "rozmowy: " + a.rozmowy[i] +" "+ a.rozmowycena[i];
+                wypis += Environment.NewLine + "Rozmowy: " + a.rozmowy[i] + " Koszt: " + a.rozmowycena[i] + "zł | "; 
                 
                 #endregion
                 
@@ -77,7 +79,7 @@ namespace CRM
                     a.smsy[i] = rdr1[0].ToString();
                     a.smsycena[i] = rdr1[1].ToString();
                 }
-                wypis +=  "smsy: "+a.smsy[i] +" "+a.smsycena[i]; 
+                wypis += "SMS'y: " + a.smsy[i] + " Koszt: " + a.smsycena[i] + "zł | ";  
                 rdr1.Close();
                 #endregion
                 #region MiesiacInternetRegion
@@ -102,7 +104,7 @@ namespace CRM
                     a.internetcena[i] = rdr2[1].ToString();
                 }
                 rdr2.Close();
-                wypis += i + "internet: " + a.internet[i] + " " + a.internetcena[i];
+                wypis += i + "Internet: " + a.internet[i] + " Koszt: " + a.internetcena[i] + "zł | "; 
                 #endregion
 
                 #region MiesiacAbonamentRegion
@@ -125,12 +127,13 @@ namespace CRM
                     a.abonament[i] = rdr3[0].ToString();
                 }
                 rdr3.Close();
-                wypis +=  "abonament: " + a.abonament[i] + Environment.NewLine;
+                wypis += "Abonament: " + a.abonament[i] + "zł "+Environment.NewLine;
                 #endregion
                  
                 i++;
                   
             }
+            
             WypiszDoRicha();
         }
         private void WypiszDoRicha()
@@ -144,7 +147,7 @@ namespace CRM
 
         private void button2_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Poszło do drukowania!");
+            MessageBox.Show("Poszło do drukowania (tak naprawde to nie lol)!");
         }
 
         private void button1_Click(object sender, EventArgs e)
