@@ -31,7 +31,12 @@ namespace CRM
                 richTextBox2.LostFocus += richTextBox2_LostFocus;
                 richTextBox2.Text = defRichText;
                 richTextBox2.ForeColor = Color.LightGray;
-                Ostatnie();
+                int j = 0;
+                foreach (string i in Program.ostatnioTablica)
+                {
+                    listBox1.Items.Add("Klient id: " + Program.ostatnioTablica[j]);
+                    j++;
+                }
 
         }
 
@@ -88,11 +93,9 @@ namespace CRM
 
             richTextBox2.Text = defRichText;
         }
-        //Co ostatnio edytowal/robił
-        public void Ostatnie()
-        {
 
-        }
+        
+        
         void chatRefresh()
         {
             
@@ -137,12 +140,7 @@ namespace CRM
         private void oAutorachToolStripMenuItem_Click(object sender, EventArgs e)
         {
             oAutorach.foo();
-        }
-
-        private void listaKlientówToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            ListaKlientow.Form();
-        }        
+        }                   
 
         private void label1_Click(object sender, EventArgs e) // ??
         {
@@ -156,7 +154,7 @@ namespace CRM
         }
 
         private void pictureBox2_Click(object sender, EventArgs e)
-        {
+        {            
             MessageBox.Show("jakies drukowanie bedzie tu");
         }
 

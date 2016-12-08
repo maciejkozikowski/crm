@@ -50,8 +50,30 @@ namespace CRM
             }
 
         }
-        
 
+        public static string updateLastKlient()
+        {
+            string a = "";
+            if (myConnection.State == ConnectionState.Closed)
+            {
+                myConnection.Open();
+            }
+            try
+            {
+                MySqlCommand cmd = new MySqlCommand("Update users set lasteditedclient = @lastKlients where  id = @userId");
+                cmd.Parameters.AddWithValue("@lastKlients", Program.ostatnio);
+                cmd.Parameters.AddWithValue("@userId", Program.userId);
+                MySqlDataReader rdr = cmd.ExecuteReader();
+
+                rdr.Close();
+            }
+            catch (MySql.Data.MySqlClient.MySqlException ex)
+            {
+                MessageBox.Show("Błąd numer: " + ex.Number + " , " + ex.Message);
+            } 
+            return a;
+}
+        }
 
     }
-}
+

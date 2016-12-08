@@ -51,7 +51,9 @@
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.richTextBox2 = new System.Windows.Forms.RichTextBox();
+            this.listBox1 = new System.Windows.Forms.ListBox();
             this.menuStrip1.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
@@ -122,7 +124,7 @@
             // oAutorachToolStripMenuItem
             // 
             this.oAutorachToolStripMenuItem.Name = "oAutorachToolStripMenuItem";
-            this.oAutorachToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.oAutorachToolStripMenuItem.Size = new System.Drawing.Size(133, 22);
             this.oAutorachToolStripMenuItem.Text = "O autorach";
             this.oAutorachToolStripMenuItem.Click += new System.EventHandler(this.oAutorachToolStripMenuItem_Click);
             // 
@@ -155,6 +157,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.listBox1);
             this.groupBox1.Location = new System.Drawing.Point(13, 45);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(200, 175);
@@ -266,6 +269,14 @@
             this.richTextBox2.TabIndex = 23;
             this.richTextBox2.Text = "";
             // 
+            // listBox1
+            // 
+            this.listBox1.FormattingEnabled = true;
+            this.listBox1.Location = new System.Drawing.Point(7, 20);
+            this.listBox1.Name = "listBox1";
+            this.listBox1.Size = new System.Drawing.Size(187, 147);
+            this.listBox1.TabIndex = 0;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -286,6 +297,7 @@
             this.Text = "CRM";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
@@ -322,6 +334,7 @@
         private System.Windows.Forms.PictureBox pictureBox6;
         private System.Windows.Forms.PictureBox pictureBox5;
         private System.Windows.Forms.PictureBox pictureBox4;
+        private System.Windows.Forms.ListBox listBox1;
     }
 }
 

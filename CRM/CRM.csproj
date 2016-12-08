@@ -70,7 +70,6 @@
     <Compile Include="KlientForm.Designer.cs">
       <DependentUpon>KlientForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="ListaKlientow.cs" />
     <Compile Include="Logowanie.cs">
       <SubType>Form</SubType>
     </Compile>

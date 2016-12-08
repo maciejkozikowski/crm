@@ -57,7 +57,7 @@ namespace CRM
                     }
                     rdr.Close();
 
-                    wypis += Environment.NewLine + "Rozmowy: " + a.rozmowy[i] + " Koszt: " + a.rozmowycena[i] + "zł | " + Environment.NewLine; //eleganckie wypisanie opłat za rozmowy
+                    wypis += Environment.NewLine + "Rozmowy: " + a.rozmowy[i] + " Koszt: " + a.rozmowycena[i] + "zł  " + Environment.NewLine; //eleganckie wypisanie opłat za rozmowy
                 }
                 catch (MySql.Data.MySqlClient.MySqlException ex)
                 {
@@ -88,7 +88,7 @@ namespace CRM
                         a.smsy[i] = rdr1[0].ToString();
                         a.smsycena[i] = rdr1[1].ToString();
                     }
-                    wypis += "SMS'y: " + a.smsy[i] + " Koszt: " + a.smsycena[i] + "zł | " + Environment.NewLine;
+                    wypis += "SMS'y: " + a.smsy[i] + " Koszt: " + a.smsycena[i] + "zł " + Environment.NewLine;
                     rdr1.Close();
                 }
                 catch (MySql.Data.MySqlClient.MySqlException ex)
@@ -121,7 +121,7 @@ namespace CRM
                         a.internetcena[i] = rdr2[1].ToString();
                     }
                     rdr2.Close();
-                    wypis += "Internet: " + a.internet[i] + " Koszt: " + a.internetcena[i] + "zł | " + Environment.NewLine;
+                    wypis += "Internet: " + a.internet[i] + " Koszt: " + a.internetcena[i] + "zł " + Environment.NewLine;
                 }
                 catch (MySql.Data.MySqlClient.MySqlException ex)
                 {

@@ -19,6 +19,8 @@ namespace CRM
         public static string userId = "0";
         public static string userLastLogin;
         public static string userName;
+        public static string ostatnio;
+        public static string[] ostatnioTablica = new string[] { };
         public static bool zalogowano = false;        
         
         /// <summary>
@@ -39,8 +41,8 @@ namespace CRM
         }
 
        public static void Logowanie(string log, string haslo)
-        {             
-                MySqlCommand cmd = new MySqlCommand("select id,name,lastlogin from users where login = @log and password = @haslo;", SqlConnectionClass.myConnection);
+        {
+            MySqlCommand cmd = new MySqlCommand("select id,name,lastlogin,lasteditedclient from users where login = @log and password = @haslo;", SqlConnectionClass.myConnection);
                 cmd.Parameters.AddWithValue("@log", log);
                 cmd.Parameters.AddWithValue("@haslo", haslo);
 
@@ -56,7 +58,8 @@ namespace CRM
                 {
                     userId = rdr[0].ToString();                      
                     userName = rdr[1].ToString();
-                    userLastLogin = rdr[2].ToString();   
+                    userLastLogin = rdr[2].ToString();
+                    ostatnio = rdr[3].ToString();
                 }
                 rdr.Close();
                 
@@ -76,7 +79,11 @@ namespace CRM
             catch (MySql.Data.MySqlClient.MySqlException ex)
             {
                 MessageBox.Show("Błąd numer: " + ex.Number + " , " + ex.Message);
-            }   
+            }  
+           //wrzuca w tablice ostatnich klientow
+            char delimiter = '-';
+            ostatnioTablica = ostatnio.Split(delimiter);
+            
         }
     }
 }
