@@ -575,6 +575,7 @@ namespace CRM
        public string nazwafaktury, imieF, nazwiskoF, adresF;
        public int rok, miesiac;
        public string[] abonament;
+       public string[] abonamentcena;
        public string[] rozmowy;
        public string[] rozmowycena;
        public string[] smsy;
@@ -593,6 +594,7 @@ namespace CRM
             this.nazwiskoF = nazwisko;
             this.adresF = adres_kor;
             abonament = new string[a.Count];
+            abonamentcena = new string[a.Count];
             rozmowy = new string[a.Count];
             rozmowycena = new string[a.Count];
             smsy = new string[a.Count];

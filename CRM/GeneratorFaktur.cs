@@ -104,12 +104,12 @@ namespace CRM
                     a.internetcena[i] = rdr2[1].ToString();
                 }
                 rdr2.Close();
-                wypis += i + "Internet: " + a.internet[i] + " Koszt: " + a.internetcena[i] + "zł | "; 
+                wypis +="Internet: " + a.internet[i] + " Koszt: " + a.internetcena[i] + "zł | "; 
                 #endregion
 
                 #region MiesiacAbonamentRegion
                 //Ile jest numerow dlatego id
-                sql = "SELECT a.cenaabonament FROM abonament a inner join telefon t on t.abonament=a.id where t.numer=@numer;";
+                sql = "SELECT a.nazwa,a.cenaabonament FROM abonament a inner join telefon t on t.abonament=a.id where t.numer=@numer;";
                 MySqlCommand cmd3 = new MySqlCommand(sql,
                    SqlConnectionClass.myConnection);
 
@@ -125,9 +125,10 @@ namespace CRM
                 {
 
                     a.abonament[i] = rdr3[0].ToString();
+                    a.abonamentcena[i] = rdr3[1].ToString();
                 }
                 rdr3.Close();
-                wypis += "Abonament: " + a.abonament[i] + "zł "+Environment.NewLine;
+                wypis += "Abonament: " + a.abonament[i] +" Koszt: "+ a.abonamentcena[i] + "zł "+Environment.NewLine;
                 #endregion
                  
                 i++;
