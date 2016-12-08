@@ -36,9 +36,7 @@
             this.wyszukajKlientaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dodajKlientaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pomocToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.changeLogToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.oAutorachToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.oBazieToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
@@ -116,32 +114,17 @@
             // pomocToolStripMenuItem
             // 
             this.pomocToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.changeLogToolStripMenuItem,
-            this.oAutorachToolStripMenuItem,
-            this.oBazieToolStripMenuItem});
+            this.oAutorachToolStripMenuItem});
             this.pomocToolStripMenuItem.Name = "pomocToolStripMenuItem";
             this.pomocToolStripMenuItem.Size = new System.Drawing.Size(57, 20);
             this.pomocToolStripMenuItem.Text = "Pomoc";
             // 
-            // changeLogToolStripMenuItem
-            // 
-            this.changeLogToolStripMenuItem.Name = "changeLogToolStripMenuItem";
-            this.changeLogToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
-            this.changeLogToolStripMenuItem.Text = "Change Log";
-            this.changeLogToolStripMenuItem.Click += new System.EventHandler(this.changeLogToolStripMenuItem_Click);
-            // 
             // oAutorachToolStripMenuItem
             // 
             this.oAutorachToolStripMenuItem.Name = "oAutorachToolStripMenuItem";
-            this.oAutorachToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
+            this.oAutorachToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.oAutorachToolStripMenuItem.Text = "O autorach";
             this.oAutorachToolStripMenuItem.Click += new System.EventHandler(this.oAutorachToolStripMenuItem_Click);
-            // 
-            // oBazieToolStripMenuItem
-            // 
-            this.oBazieToolStripMenuItem.Name = "oBazieToolStripMenuItem";
-            this.oBazieToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
-            this.oBazieToolStripMenuItem.Text = "O bazie";
             // 
             // label1
             // 
@@ -324,9 +307,7 @@
         private System.Windows.Forms.ToolStripMenuItem wyszukajKlientaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem pomocToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem oAutorachToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem changeLogToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem dodajKlientaToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem oBazieToolStripMenuItem;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.RichTextBox richTextBox1;

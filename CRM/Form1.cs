@@ -28,8 +28,11 @@ namespace CRM
                 richTextBox2.MaxLength = 200;
                 //this.ActiveControl = richTextBox2; // ma byc aktywny na starcie czat, okienko do wpisywania
                 richTextBox2.GotFocus += richTextBox2_GotFocus;
+                richTextBox2.LostFocus += richTextBox2_LostFocus;
                 richTextBox2.Text = defRichText;
-                richTextBox2.ForeColor = Color.LightGray;      
+                richTextBox2.ForeColor = Color.LightGray;
+                Ostatnie();
+
         }
 
         //Czy użytkownik chce coś na czacie napisać?
@@ -39,7 +42,16 @@ namespace CRM
             if(richTextBox2.Text == defRichText)
             richTextBox2.Text = "";
         }
+        private void richTextBox2_LostFocus(object sender, EventArgs e)
+        {
 
+            if (richTextBox2.Text == "")
+            {
+                richTextBox2.ForeColor = Color.LightGray;
+                richTextBox2.Text = defRichText;
+            }
+                
+        }
         //?
         private void textBox6_TextChanged(object sender, EventArgs e)
         {
@@ -76,7 +88,11 @@ namespace CRM
 
             richTextBox2.Text = defRichText;
         }
+        //Co ostatnio edytowal/robił
+        public void Ostatnie()
+        {
 
+        }
         void chatRefresh()
         {
             
@@ -126,13 +142,7 @@ namespace CRM
         private void listaKlientówToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ListaKlientow.Form();
-        }
-
-        private void changeLogToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            ChangeLog changelogform = new ChangeLog();
-            changelogform.Show();
-        }
+        }        
 
         private void label1_Click(object sender, EventArgs e) // ??
         {

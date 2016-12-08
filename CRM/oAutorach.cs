@@ -15,7 +15,7 @@ namespace CRM
 
        public static void foo()
        {
-           MessageBox.Show("Program został stworzony przez:\n Macieja Stępień oraz Macieja Kozikowskiego");
+           MessageBox.Show("Program został stworzony przez:\n Macieja Stępień oraz Macieja Kozikowskiego.");
        }
 
 
