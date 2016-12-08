@@ -22,7 +22,8 @@ namespace CRM
             wypis += "" + a.adresF + Environment.NewLine;
             wypis += "Numer klienta: " + a.id + Environment.NewLine;            
             wypis += "Faktura: " +a.nazwafaktury + Environment.NewLine;
-
+            float[] suma = new float[a.listaTelefonow2.Count];
+            float sumawszystko=0;
             string miesiac123;
             int i = 0;
             foreach (var telefon in a.listaTelefonow2)
@@ -130,11 +131,13 @@ namespace CRM
                 rdr3.Close();
                 wypis += "Abonament: " + a.abonament[i] +" Koszt: "+ a.abonamentcena[i] + "zł "+Environment.NewLine;
                 #endregion
-                 
+                suma[i] = float.Parse(a.rozmowycena[i]) + float.Parse(a.smsycena[i]) + float.Parse(a.internetcena[i]) + float.Parse(a.abonamentcena[i]);
+                sumawszystko += suma[i];
+                wypis += "Suma: " + suma[i].ToString() +"zł"+ Environment.NewLine;
                 i++;
                   
             }
-            
+            wypis += Environment.NewLine+"Suma faktury: " + sumawszystko+"zł";
             WypiszDoRicha();
         }
         private void WypiszDoRicha()
