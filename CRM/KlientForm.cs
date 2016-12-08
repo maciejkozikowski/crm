@@ -179,142 +179,148 @@ namespace CRM
 
         void StanKonta()
         {
-            #region MiesiacRozmowyRegion
-            //Ile jest numerow dlatego id
-            string sql = "select oplata from miesiacrozmowy where numer ='" + wybranyNumer + "' and miesiac = '2016-12';";
-
-            MySqlCommand cmd = new MySqlCommand(sql,
-               SqlConnectionClass.myConnection);
-
-            //Czy jest polaczenie z baza ?
-            if (SqlConnectionClass.myConnection.State == ConnectionState.Closed)
-            {
-                SqlConnectionClass.myConnection.Open();
-            }
-            MySqlDataReader rdr = cmd.ExecuteReader();
-
-            while (rdr.Read())
-            {
-               label10.Text= "Rozmowy: " + rdr[0].ToString() + "zł";
-            }
-            rdr.Close();
-            #endregion
-
-            #region MiesiacSmsyRegion
-
-            sql = "select oplata from miesiacsmsy where numer ='" + wybranyNumer + "' and miesiac = '2016-12';";
-            MySqlCommand cmd2 = new MySqlCommand(sql,
-               SqlConnectionClass.myConnection);
-            MySqlDataReader rdr2 = cmd2.ExecuteReader();
-
-            while (rdr2.Read())
-            {
-                label11.Text = "Smsy: " + rdr2[0].ToString() + "zł";
-            }
-            rdr2.Close();
-            #endregion
-
-            #region MeisiacInternetRegion
-            sql = "select oplata from miesiacinternet where numer ='" + wybranyNumer + "' and miesiac = '2016-12';";
-            MySqlCommand cmd3 = new MySqlCommand(sql,
-               SqlConnectionClass.myConnection);
-            MySqlDataReader rdr3 = cmd3.ExecuteReader();
-
-            while (rdr3.Read())
-            {
-                label12.Text = "Internet: " + rdr3[0].ToString() + "zł";
-            }
-            rdr3.Close();
-            #endregion
-
-            #region pakietrozmowy
-
-            sql = "SELECT count(dataaktywacji)-count(datadezaktywacji) FROM pakietrozmowy where numer =@numer";
-            MySqlCommand cmd4 = new MySqlCommand(sql, SqlConnectionClass.myConnection);
-            cmd4.Parameters.AddWithValue("@numer", wybranyNumer);
             try
             {
+                #region MiesiacRozmowyRegion
+                //Ile jest numerow dlatego id
+                string sql = "select oplata from miesiacrozmowy where numer ='" + wybranyNumer + "' and miesiac = '2016-12';";
+
+                MySqlCommand cmd = new MySqlCommand(sql,
+                   SqlConnectionClass.myConnection);
+
+                //Czy jest polaczenie z baza ?
                 if (SqlConnectionClass.myConnection.State == ConnectionState.Closed)
                 {
                     SqlConnectionClass.myConnection.Open();
                 }
-                MySqlDataReader rdr4 = cmd4.ExecuteReader();
-                while (rdr4.Read())
+                MySqlDataReader rdr = cmd.ExecuteReader();
+                label10.Text = "Rozmowy: 0zł";
+                while (rdr.Read())
                 {
-                    if (rdr4[0].ToString() == "0")
-                        label16.Text = "Wyłączony";
-                    else
-                        label16.Text = "Włączony";
-                    break;
+                    label10.Text = "Rozmowy: " + rdr[0].ToString() + "zł";
                 }
-                rdr4.Close();
-                
+                rdr.Close();
+                #endregion
+
+                #region MiesiacSmsyRegion
+
+                sql = "select oplata from miesiacsmsy where numer ='" + wybranyNumer + "' and miesiac = '2016-12';";
+                MySqlCommand cmd2 = new MySqlCommand(sql,
+                   SqlConnectionClass.myConnection);
+                MySqlDataReader rdr2 = cmd2.ExecuteReader();
+                label11.Text = "Smsy: 0zł";
+                while (rdr2.Read())
+                {
+                    label11.Text = "Smsy: " + rdr2[0].ToString() + "zł";
+                }
+                rdr2.Close();
+                #endregion
+
+                #region MeisiacInternetRegion
+                sql = "select oplata from miesiacinternet where numer ='" + wybranyNumer + "' and miesiac = '2016-12';";
+                MySqlCommand cmd3 = new MySqlCommand(sql,
+                   SqlConnectionClass.myConnection);
+                MySqlDataReader rdr3 = cmd3.ExecuteReader();
+                label12.Text = "Internet: 0zł";
+                while (rdr3.Read())
+                {
+                    label12.Text = "Internet: " + rdr3[0].ToString() + "zł";
+                }
+                rdr3.Close();
+                #endregion
+
+                #region pakietrozmowy
+
+                sql = "SELECT count(dataaktywacji)-count(datadezaktywacji) FROM pakietrozmowy where numer =@numer";
+                MySqlCommand cmd4 = new MySqlCommand(sql, SqlConnectionClass.myConnection);
+                cmd4.Parameters.AddWithValue("@numer", wybranyNumer);
+                try
+                {
+                    if (SqlConnectionClass.myConnection.State == ConnectionState.Closed)
+                    {
+                        SqlConnectionClass.myConnection.Open();
+                    }
+                    MySqlDataReader rdr4 = cmd4.ExecuteReader();
+                    while (rdr4.Read())
+                    {
+                        if (rdr4[0].ToString() == "0")
+                            label16.Text = "Wyłączony";
+                        else
+                            label16.Text = "Włączony";
+                        break;
+                    }
+                    rdr4.Close();
+
+                }
+                catch (MySql.Data.MySqlClient.MySqlException ex)
+                {
+                    MessageBox.Show("Błąd numer: " + ex.Number + " , " + ex.Message);
+                }
+
+                #endregion
+
+                #region pakietsmsy
+
+                sql = "SELECT count(dataaktywacji)-count(datadezaktywacji) FROM pakietsmsy where numer =@numer";
+                MySqlCommand cmd5 = new MySqlCommand(sql, SqlConnectionClass.myConnection);
+                cmd5.Parameters.AddWithValue("@numer", wybranyNumer);
+                try
+                {
+                    if (SqlConnectionClass.myConnection.State == ConnectionState.Closed)
+                    {
+                        SqlConnectionClass.myConnection.Open();
+                    }
+                    MySqlDataReader rdr5 = cmd5.ExecuteReader();
+                    while (rdr5.Read())
+                    {
+                        if (rdr5[0].ToString() == "0")
+                            label17.Text = "Wyłączony";
+                        else
+                            label17.Text = "Włączony";
+                        break;
+                    }
+                    rdr5.Close();
+
+                }
+                catch (MySql.Data.MySqlClient.MySqlException ex)
+                {
+                    MessageBox.Show("Błąd numer: " + ex.Number + " , " + ex.Message);
+                }
+
+                #endregion
+
+                #region pakietinternet
+                sql = "SELECT count(dataaktywacji)-count(datadezaktywacji) FROM pakietinternet where numer =@numer";
+                MySqlCommand cmd6 = new MySqlCommand(sql, SqlConnectionClass.myConnection);
+                cmd6.Parameters.AddWithValue("@numer", wybranyNumer);
+                try
+                {
+                    if (SqlConnectionClass.myConnection.State == ConnectionState.Closed)
+                    {
+                        SqlConnectionClass.myConnection.Open();
+                    }
+                    MySqlDataReader rdr6 = cmd6.ExecuteReader();
+                    while (rdr6.Read())
+                    {
+                        if (rdr6[0].ToString() == "0")
+                            label18.Text = "Wyłączony";
+                        else
+                            label18.Text = "Włączony";
+                        break;
+                    }
+                    rdr6.Close();
+
+                }
+                catch (MySql.Data.MySqlClient.MySqlException ex)
+                {
+                    MessageBox.Show("Błąd numer: " + ex.Number + " , " + ex.Message);
+                }
+                #endregion
             }
             catch (MySql.Data.MySqlClient.MySqlException ex)
             {
                 MessageBox.Show("Błąd numer: " + ex.Number + " , " + ex.Message);
             }
-
-            #endregion
-
-            #region pakietsmsy
-
-            sql = "SELECT count(dataaktywacji)-count(datadezaktywacji) FROM pakietsmsy where numer =@numer";
-            MySqlCommand cmd5 = new MySqlCommand(sql, SqlConnectionClass.myConnection);
-            cmd5.Parameters.AddWithValue("@numer", wybranyNumer);
-            try
-            {
-                if (SqlConnectionClass.myConnection.State == ConnectionState.Closed)
-                {
-                    SqlConnectionClass.myConnection.Open();
-                }
-                MySqlDataReader rdr5 = cmd5.ExecuteReader();
-                while (rdr5.Read())
-                {
-                    if (rdr5[0].ToString() == "0")
-                        label17.Text = "Wyłączony";
-                    else
-                        label17.Text = "Włączony";
-                    break;
-                }
-                rdr5.Close();
-
-            }
-            catch (MySql.Data.MySqlClient.MySqlException ex)
-            {
-                MessageBox.Show("Błąd numer: " + ex.Number + " , " + ex.Message);
-            }
-
-            #endregion
-
-            #region pakietinternet
-            sql = "SELECT count(dataaktywacji)-count(datadezaktywacji) FROM pakietinternet where numer =@numer";
-            MySqlCommand cmd6 = new MySqlCommand(sql, SqlConnectionClass.myConnection);
-            cmd6.Parameters.AddWithValue("@numer", wybranyNumer);
-            try
-            {
-                if (SqlConnectionClass.myConnection.State == ConnectionState.Closed)
-                {
-                    SqlConnectionClass.myConnection.Open();
-                }
-                MySqlDataReader rdr6 = cmd6.ExecuteReader();
-                while (rdr6.Read())
-                {
-                    if (rdr6[0].ToString() == "0")
-                        label18.Text = "Wyłączony";
-                    else
-                        label18.Text = "Włączony";
-                    break;
-                }
-                rdr6.Close();
-
-            }
-            catch (MySql.Data.MySqlClient.MySqlException ex)
-            {
-                MessageBox.Show("Błąd numer: " + ex.Number + " , " + ex.Message);
-            }
-            #endregion
-
         }
 
        public void Faktura()
