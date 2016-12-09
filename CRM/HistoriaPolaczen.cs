@@ -22,7 +22,8 @@ namespace CRM
             TabelaInternet();
             TabelaRozmowy();
             TabelaSMSy();
-            this.FormClosing += HistoriaPolaczen_FormClosing;   
+            this.FormClosing += HistoriaPolaczen_FormClosing;
+            this.Text += numer;
         }
         //Pusty konstruktor
         public HistoriaPolaczen() 
