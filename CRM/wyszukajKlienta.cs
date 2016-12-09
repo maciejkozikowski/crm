@@ -26,8 +26,6 @@ namespace CRM
             dataGridView1.ReadOnly = true;
             dataGridView1.CellClick += dataGridView1_CellClick;
             this.FormClosing += WyszakajKlienta_FormClosing;
-            
-
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -84,11 +82,8 @@ namespace CRM
 
             }
 
-            
-
-
             sql += ";";
-
+            //Trzeba to wyzej poporawic i dać sobaćki zamiast texboxow
 
             //adapter.Dispose();
             MySqlDataAdapter adapter = new MySqlDataAdapter(sql, SqlConnectionClass.myConnection);
@@ -204,7 +199,7 @@ namespace CRM
             Dispose();
         }
         //Aktualizacja danych
-        private void button1_Click_1(object sender, EventArgs e)
+        private void button1_Click_1(object sender, EventArgs e) //Na chuj to ?
         {
             
         }

@@ -48,13 +48,13 @@
             this.dataGridView1.Location = new System.Drawing.Point(13, 38);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(959, 150);
+            this.dataGridView1.Size = new System.Drawing.Size(449, 150);
             this.dataGridView1.TabIndex = 0;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(459, 22);
+            this.label1.Location = new System.Drawing.Point(225, 20);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(53, 13);
             this.label1.TabIndex = 1;
@@ -63,7 +63,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(459, 191);
+            this.label2.Location = new System.Drawing.Point(225, 190);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(35, 13);
             this.label2.TabIndex = 1;
@@ -77,13 +77,13 @@
             this.dataGridView2.Location = new System.Drawing.Point(12, 207);
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.ReadOnly = true;
-            this.dataGridView2.Size = new System.Drawing.Size(959, 150);
+            this.dataGridView2.Size = new System.Drawing.Size(450, 150);
             this.dataGridView2.TabIndex = 0;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(459, 360);
+            this.label3.Location = new System.Drawing.Point(225, 360);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(43, 13);
             this.label3.TabIndex = 1;
@@ -97,14 +97,14 @@
             this.dataGridView3.Location = new System.Drawing.Point(12, 376);
             this.dataGridView3.Name = "dataGridView3";
             this.dataGridView3.ReadOnly = true;
-            this.dataGridView3.Size = new System.Drawing.Size(959, 150);
+            this.dataGridView3.Size = new System.Drawing.Size(450, 150);
             this.dataGridView3.TabIndex = 0;
             // 
             // HistoriaPolaczen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(984, 531);
+            this.ClientSize = new System.Drawing.Size(471, 531);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);

@@ -35,6 +35,7 @@ namespace CRM
                 int j = 0;
                 foreach (string i in Program.ostatnioTablica)
                 {
+                    if (Program.ostatnioTablica[j] !="")
                     listBox1.Items.Add("Klient id: " + Program.ostatnioTablica[j]);
                     j++;
                 }

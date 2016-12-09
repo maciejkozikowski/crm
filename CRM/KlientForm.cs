@@ -565,6 +565,17 @@ namespace CRM
                 genFakForm.Show();
             }
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            if (wybranyNumer != null)
+            {
+                HistoriaPolaczen HistoForm = new HistoriaPolaczen(wybranyNumer);
+                HistoForm.Show();
+            }
+            else
+                MessageBox.Show("Brak numeru do wyświetlenia histori połączeń");
+        }
     }
 
     public class Telefon

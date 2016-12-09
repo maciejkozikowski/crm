@@ -69,7 +69,13 @@ namespace CRM
                 }
                 j++;
             }
+            if(Program.ostatnio == "")
+            {
+                Program.ostatnio += dodajemy;
+            }
+            else
             Program.ostatnio += "-" + dodajemy;
+
             string a = "";
             if (myConnection.State == ConnectionState.Closed)
             {
