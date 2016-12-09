@@ -41,9 +41,16 @@ namespace CRM
             {
                 SqlConnectionClass.myConnection.Open();
             }
-            
-            adapter.Fill(DS);           
-            dataGridView1.DataSource = DS.Tables[0];
+
+            try
+            {
+                adapter.Fill(DS);
+                dataGridView1.DataSource = DS.Tables[0];
+            }
+            catch (MySql.Data.MySqlClient.MySqlException ex)
+            {
+                MessageBox.Show("Błąd numer: " + ex.Number + " , " + ex.Message);
+            }
         }
         void TabelaSMSy()
         {
@@ -57,13 +64,21 @@ namespace CRM
                 SqlConnectionClass.myConnection.Open();
             }
 
-            adapter.Fill(DS);
-            dataGridView2.DataSource = DS.Tables[0];
+            try
+            {
+                adapter.Fill(DS);
+                dataGridView2.DataSource = DS.Tables[0];
+            }
+            catch (MySql.Data.MySqlClient.MySqlException ex)
+            {
+                MessageBox.Show("Błąd numer: " + ex.Number + " , " + ex.Message);
+            }
+            
         }
         void TabelaInternet()
         {
             string sql = "select numer, datapolaczenia, round(internet/1024/1024,2) as MB, oplata from oplatazainternet where numer = '"+ numer +"' order by datapolaczenia desc;";
-            MySqlDataAdapter cmd = new MySqlDataAdapter(sql, SqlConnectionClass.myConnection);            
+            MySqlDataAdapter adapter = new MySqlDataAdapter(sql, SqlConnectionClass.myConnection);            
             DataSet DS = new DataSet();
            
             if (SqlConnectionClass.myConnection.State == ConnectionState.Closed)  //Jest połączony z bazą??
@@ -71,8 +86,15 @@ namespace CRM
                 SqlConnectionClass.myConnection.Open();
             }
 
-            cmd.Fill(DS);
-            dataGridView3.DataSource = DS.Tables[0];
+            try
+            {
+                adapter.Fill(DS);
+                dataGridView3.DataSource = DS.Tables[0];
+            }
+            catch (MySql.Data.MySqlClient.MySqlException ex)
+            {
+                MessageBox.Show("Błąd numer: " + ex.Number + " , " + ex.Message);
+            }
         }
         private void HistoriaPolaczen_FormClosing(Object sender, FormClosingEventArgs e)
         {

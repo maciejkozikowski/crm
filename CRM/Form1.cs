@@ -32,6 +32,7 @@ namespace CRM
                 
                 richTextBox2.Text = defRichText;
                 richTextBox2.ForeColor = Color.LightGray;
+            //lista ostanich klientow
                 int j = 0;
                 foreach (string i in Program.ostatnioTablica)
                 {
